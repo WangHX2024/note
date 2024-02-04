@@ -1,0 +1,55 @@
+site_name: 王浩雄的个人主页
+site_url: https://WangHX2024.github.io/blog
+repo_name: WangHX
+repo_url: https://github.com/WangHX2024/blog
+edit_uri: tree/master/docs
+site_description: 王浩雄的个人主页
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/qq 
+      link: https://3047901150.qzone.qq.com
+    - icon: fontawesome/brands/github 
+      link: https://github.com/WangHX2024/
+copyright: Copyright &copy; 2023 - 2024 WangHX</p>
+
+
+theme:
+  name: 'material'
+  language: 'zh'
+  icon: 
+    logo: material/notebook-outline
+  palette: 
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.tabs
+
+nav:
+  - 主页:
+    - 主页: index.md
+    - 更新记录: log.md
+    - 友链: links.md
+  - 笔记: 
+    - 笔记: notes/index.md
+  - 关于:
+    - 关于: about/index.md
