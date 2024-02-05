@@ -75,14 +75,16 @@ hide:
 以上的note，可替换为abstract、info、tip、success、question、warning、failure、danger、bug、example、quote
 
 ## 第三讲：注释语法
-这是一段需要注释(1)的文本(2)。注释可应用在文本、告诫、内容选项卡等多处，也可以嵌套使用。{.annotate}
+这是一段需要注释(1)的文本(2)。注释可应用在文本、告诫、内容选项卡等多处，也可以嵌套使用。
+{.annotate}
 
 1.  这是(1)处注释的内容。
 2.  这是(2)处注释的内容。
 
 代码：
 ```
-这是一段需要注释(1)的文本(2)。注释可应用在文本、告诫、内容选项卡等多处，也可以嵌套使用。{.annotate}
+这是一段需要注释(1)的文本(2)。注释可应用在文本、告诫、内容选项卡等多处，也可以嵌套使用。
+{.annotate}
 
 1.  这是(1)处注释的内容。
 2.  这是(2)处注释的内容。
@@ -210,6 +212,37 @@ int main()
 
 ### 8.2 通用网格
 通用网格允许在网格中排列任意块元素，包括告诫、代码块、内容选项卡等。
+
+<div class="grid" markdown>
+
+| Method   | Description     |
+| :------- | :---------------|
+| GET      | Fetch resource  |
+| PUT      | Update resource |
+| DELETE   | Delete resource |
+
+!!! note "告诫标题"
+    
+    这是告诫文本，开头缩进4个空格。
+    
+</div>
+
+代码：
+```
+<div class="grid" markdown>
+
+| Method   | Description     |
+| :------- | :---------------|
+| GET      | Fetch resource  |
+| PUT      | Update resource |
+| DELETE   | Delete resource |
+
+!!! note "告诫标题"
+    
+    这是告诫文本，开头缩进4个空格。
+    
+</div>
+```
 
 ## 第九讲：图标与表情
 图标搜索：https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
