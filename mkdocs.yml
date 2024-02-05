@@ -91,7 +91,7 @@ plugins:
       exclude:
         - index.md
         - comment.md
-        - links.md
+        - link.md
 
 markdown_extensions:
   - admonition
@@ -129,11 +129,11 @@ nav:
   - 主页: 
     - index.md
     - 留言板: comment.md
-    - 友链: links.md
+    - 友链: link.md
   - 博客:
     - blog/index.md
   - 笔记: 
-    - notes/index.md
+    - note/index.md
   - 关于:
     - about/index.md
 
