@@ -134,6 +134,7 @@ nav:
     - blog/index.md
   - 笔记: 
     - note/index.md
+    - Markdown 扩展语法: note/Markdown Extensions.md
   - 关于:
     - about/index.md
 
