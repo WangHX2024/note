@@ -209,39 +209,7 @@ int main()
 ```
 
 ### 8.2 通用网格
-通用网格允许在网格中排列任意块元素，包括告诫、代码块、内容选项卡等。例如：
-
-```
-<div class="grid" markdown>
-
-=== "Unordered list"
-
-    * Sed sagittis eleifend rutrum
-    * Donec vitae suscipit est
-    * Nulla tempor lobortis orci
-
-=== "Ordered list"
-
-    1. Sed sagittis eleifend rutrum
-    2. Donec vitae suscipit est
-    3. Nulla tempor lobortis orci
-
-``` title="Content tabs"
-=== "Unordered list"
-
-    * Sed sagittis eleifend rutrum
-    * Donec vitae suscipit est
-    * Nulla tempor lobortis orci
-
-=== "Ordered list"
-
-    1. Sed sagittis eleifend rutrum
-    2. Donec vitae suscipit est
-    3. Nulla tempor lobortis orci
-```
-
-</div>
-```
+通用网格允许在网格中排列任意块元素，包括告诫、代码块、内容选项卡等。
 
 ## 第九讲：图标与表情
 图标搜索：https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
