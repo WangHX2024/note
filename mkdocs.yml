@@ -71,6 +71,9 @@ extra:
       ratings:
         - icon: fontawesome/regular/hand-back-fist
           name: 激励
+          data: 1
+          note: >- 
+            <center> 感谢支持</center>
 
 extra_css:
   - _css/extra.css
