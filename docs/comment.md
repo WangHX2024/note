@@ -1,7 +1,7 @@
 ---
-comments: True
 hide:
   - footer
+comments: True
 ---
 
 # 留言板
