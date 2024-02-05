@@ -81,6 +81,8 @@ plugins:
       locale: zh
       exclude:
         - index.md
+        - comment.md
+        - link.md
 
 markdown_extensions:
   - admonition
