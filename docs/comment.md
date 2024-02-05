@@ -1,6 +1,4 @@
 ---
-hide:
-  - footer
 comments: True
 ---
 
