@@ -82,7 +82,7 @@ plugins:
       exclude:
         - index.md
         - comment.md
-        - link.md
+        - links.md
 
 markdown_extensions:
   - admonition
