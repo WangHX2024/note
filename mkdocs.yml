@@ -66,6 +66,11 @@ extra:
   analytics:
     provider: google
     property: G-PLSZR8E9QE
+    feedback:
+      title: 激励
+      ratings:
+        - icon: fontawesome/regular/hand-back-fist
+          name: 激励
 
 extra_css:
   - _css/extra.css
