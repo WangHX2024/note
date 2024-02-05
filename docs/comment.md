@@ -1,5 +1,7 @@
 ---
 comments: true
+hide:
+  - footer
 ---
 
 # 留言板
