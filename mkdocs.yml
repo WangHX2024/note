@@ -1,55 +1,128 @@
 site_name: 王浩雄的个人主页
 site_url: https://WangHX2024.github.io/blog
+site_description: 王浩雄的个人主页
 repo_name: WangHX
 repo_url: https://github.com/WangHX2024/blog
 edit_uri: tree/master/docs
-site_description: 王浩雄的个人主页
-
-extra:
-  generator: false
-  social:
-    - icon: fontawesome/brands/qq 
-      link: https://3047901150.qzone.qq.com
-    - icon: fontawesome/brands/github 
-      link: https://github.com/WangHX2024/
 copyright: Copyright &copy; 2023 - 2024 WangHX</p>
-
 
 theme:
   name: 'material'
   language: 'zh'
   icon: 
     logo: material/notebook-outline
+    repo: fontawesome/brands/github
+    edit: material/pencil
   palette: 
-
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
-
+        name: 跟随系统
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: blue grey
+      accent: indigo
       toggle:
         icon: material/brightness-7
-        name: Switch to dark mode
-
+        name: 浅色模式
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: black
+      accent: indigo
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: 深色模式
+  font:
+    text: LXGW WenKai Screen GB Screen
+    code: JetBrains Mono
   features:
     - navigation.tabs
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - navigation.footer
+    - content.action.view
+    - content.code.copy
+    - content.code.annotate
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/qq 
+      link: https://3047901150.qzone.qq.com
+      name: QQ空间
+    - icon: fontawesome/brands/github 
+      link: https://github.com/WangHX2024/
+      name: GitHub
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<wanghaoxiong01@gmail.com>
+      name: 电子邮件
+  analytics:
+    provider: google
+    property: G-PLSZR8E9QE
+
+extra_css:
+  - _css/extra.css
+  - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+
+plugins:
+  - blog:
+      blog_dir: blog
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: datetime
+      timezone: Asia/Shanghai
+      locale: zh
+      exclude:
+        - index.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 nav:
-  - 主页:
-    - 主页: index.md
+  - 主页: 
+    - index.md
     - 更新记录: log.md
     - 友链: links.md
+  - 博客:
+    - blog/index.md
   - 笔记: 
-    - 笔记: notes/index.md
+    - notes/index.md
   - 关于:
-    - 关于: about/index.md
+    - about/index.md
+
