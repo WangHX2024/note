@@ -17,6 +17,8 @@ categories:（标签功能，在blog中使用）
     - 示例标签
 comments：（评论区功能，默认为false）
     - true
+title:主标题（若不填，则自动抓取）
+subtitle:副标题
 ---
 ```
 
