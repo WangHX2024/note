@@ -82,6 +82,7 @@ extra_css:
 plugins:
   - blog:
       blog_dir: blog
+      blog_toc: true
   - search
   - glightbox
   - git-revision-date-localized:
