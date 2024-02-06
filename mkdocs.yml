@@ -83,6 +83,7 @@ plugins:
   - blog:
       blog_dir: blog
   - search
+  - glightbox
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
