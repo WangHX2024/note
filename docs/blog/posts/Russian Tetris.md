@@ -9,7 +9,7 @@ categories:
 
 团队成员：王浩雄（组长）  袁  昊
 
-Github仓库：[链接](https://wanghx2024.github.com/Russian-Tetris)
+Github仓库：[链接](https://github.com/WangHX2024/Russian-Tetris)
 
 ## 一、程序功能
 我们团队开发了一款俄罗斯方块程序，具备以下功能：
