@@ -5,13 +5,18 @@
 详解：[Markdown 官方教程](https://markdown.com.cn)
 
 ## 第一讲：
-隐藏页面下方“上一页/下一页栏
-
 代码：
 ```
 ---
-hide:
-    - footer    
+hide:（隐藏页面下方“上一页/下一页栏）
+    - footer
+date:（在blog中使用，且必须指定）
+  created: 2024-01-31 
+  updated: 2024-02-01
+categories:（标签功能，在blog中使用）
+    - 示例标签
+comments：（评论区功能，默认为false）
+    - true
 ---
 ```
 
@@ -250,8 +255,25 @@ int main()
 ```
 
 ## 第九讲：图标与表情
-图标搜索：https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
+图标搜索：[链接](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search)
 
-使用：将表情符号的短代码放在两个冒号之间:smile:
+使用：将表情符号的短代码放在两个冒号之间，例如这样 :smile:
 
 代码：`:smile:`
+
+## 第十讲：图片
+### 10.1 图片对齐
+代码：
+```
+![Image title](/pic/picname.png){ align=left }//左对齐
+![Image title](/pic/picname.png){ align=right }//右对齐
+```
+
+### 10.2  图片标题
+代码：
+```
+<figure markdown>
+  ![Image title](/pic/picname.png){ width="300" }
+  <figcaption>要显示的图片标题</figcaption>
+</figure>
+```
