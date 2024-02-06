@@ -130,15 +130,15 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - 主页: 
+  - 主页 Home: 
     - index.md
     - 留言板: comment.md
     - 友链: link.md
-  - 博客:
+  - 博客 Blog:
     - blog/index.md
-  - 笔记: 
+  - 笔记 Note: 
     - note/index.md
     - Markdown 扩展语法: note/Markdown Extensions.md
-  - 关于:
+  - 关于 About:
     - about/index.md
 
