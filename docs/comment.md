@@ -1,6 +1,7 @@
 ---
-comments: True
+comments: true
 ---
+
 
 # 留言板
 
