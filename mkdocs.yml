@@ -33,9 +33,6 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: 切换至日间模式
-  font:
-    text: LXGW WenKai Screen GB Screen
-    code: JetBrains Mono
   features:
     - navigation.tabs
     - navigation.indexes
