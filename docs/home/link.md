@@ -1,3 +1,8 @@
+---
+hide:
+  - footer
+  - feedback
+---
 # 友链
 
 !!! info "提示"
