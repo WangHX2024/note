@@ -101,7 +101,7 @@ plugins:
       timezone: Asia/Shanghai
       locale: zh
       exclude:
-        - home/index.md
+        - index.md
         - home/comment.md
         - home/link.md
 
@@ -141,7 +141,7 @@ markdown_extensions:
 
 nav:
   - 主页 Home: 
-    - home/index.md
+    - index.md
     - 留言板: home/comment.md
     - 友链: home/link.md
   - 博客 Blog:
