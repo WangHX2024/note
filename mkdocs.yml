@@ -41,12 +41,14 @@ theme:
     code: JetBrains Mono
   features:
     - navigation.tabs
-    - navigation.path
     - navigation.indexes
     - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.footer
     - search.highlight
     - search.share
-    - navigation.footer
+    - search.suggest
     - content.action.view
     - content.code.copy
     - content.code.annotate
