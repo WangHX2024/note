@@ -54,14 +54,23 @@ theme:
 extra:
   generator: false
   social:
+    - icon: fontawesome/brands/weixin
+      link: /docs/pics/wechat.png
+      name: 微信公众号
     - icon: fontawesome/brands/qq 
       link: https://3047901150.qzone.qq.com
       name: QQ空间
     - icon: fontawesome/brands/github 
       link: https://github.com/WangHX2024/
       name: GitHub
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/wanghx2025
+      name: Telegram
+    - icon: fontawesome/brands/x-twitter # 图标 : https://fontawesome.com
+      link: https://twitter.com/wanghx01
+      name: X
     - icon: fontawesome/solid/paper-plane
-      link: mailto:<wanghaoxiong01@gmail.com>
+      link: mailto:<mail@haoxiong.wang>
       name: 电子邮件
   analytics:
     provider: google
