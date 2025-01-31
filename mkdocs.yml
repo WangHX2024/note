@@ -3,7 +3,7 @@ site_url: https://WangHX2024.github.io/blog
 site_description: 王浩雄的个人主页
 repo_name: "WangHX2024/blog"
 repo_url: https://github.com/WangHX2024/blog
-edit_uri: blog/master/docs
+edit_uri: blob/master/docs
 copyright: Copyright &copy; 2023 - 2025 WangHX</p>
 
 theme:
