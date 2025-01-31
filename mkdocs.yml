@@ -108,7 +108,12 @@ plugins:
         - index.md
         - home/comment.md
         - home/link.md
-  - git-authors
+  - git-committers:
+      repository: wanghx2024/blog
+      exclude:
+        - index.md
+        - home/comment.md
+        - home/link.md
 
 markdown_extensions:
   - admonition
