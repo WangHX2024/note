@@ -1,4 +1,9 @@
-# LaTeX学习笔记
+---
+counter: true
+comments: true
+---
+
+# LaTeX 学习笔记
 
 ## 1.基本结构
 
@@ -252,7 +257,7 @@ int main()
   \title{主标题\\副标题}
   \date{\today}
   \author{作者1\\作者单位1 \and 作者2\\作者单位2}
-
+  
   \maketitle
   ```
 - 单独成页的标题
@@ -426,7 +431,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
   ```tex
   \usepackage{geometry}
   \geometry{a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm}	% 设置纸张大小为a4，上下左右边距均为3cm
-
+  
   \geometry{paperheight=10cm,paperwidth=5cm}	% 设置纸张大小长10cm、宽5cm
   ```
 
@@ -465,7 +470,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
 
   ```tex
   \addcontentsline{toc}{section}{title}
-
+  
   % 新增了一条名为title的section级别目录项
   ```
 - 不编号，且不加入目录的章节，需加星号（以chapter为例：`\chapter*{章节名}`)
@@ -490,7 +495,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
 
   ```tex
   \usepackage{hyperref}	% 导入宏包
-
+  
   % 若使用ctex文档类，则需在声明文档类时加hyperref选项
   \documentclass[hyperref,UTF8]{ctexart}
   ```
@@ -532,7 +537,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
 
   ```tex
   \hypertarget{labelname}{链接文字} 	% 在需要被引用处添加标签
-
+  
   \hyperref{labelname}{链接文字}		% 产生链接到添加标签处的超链接
   ```
 
@@ -543,15 +548,15 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
   ```tex
   \usepackage{graphics}	% 导入宏包graphics，用于插图
   \usepackage{caption}	% 导入宏包caption，用于显示标题
-
+  
   \begin{figure}
   \centering
-
+  
   \includegraphics[width=2cm,height=1cm]{文件名}	% 插入图片(指定宽高)
   \includegraphics[scale=0.5]{文件名}	% 插入图片(指定缩放比例)
-
+  
   \caption{图片标题}
-
+  
   \end{figure}
   ```
 
@@ -562,7 +567,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
   ```tex
   \documentclass{beamer}
   \usepackage[UTF8,noindent]{ctexcap}	% 若在beamer中使用中文，则需导入此宏包（其中，ctexcap会翻译图表等环境名称，若更改为ctex则只引用必要的中文）
-
+  
   \begin{document}
   ...
   \end{document}
@@ -575,7 +580,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
   	\frametitle{标题}
   	\framesubtitle{小标题}	% 这里的标题与小标题不是下面提到的“分节与目录”中的标题
   \end{frame}
-
+  
   % 法二
   \begin{frame}{标题}{小标题}
   \end{frame}
@@ -590,7 +595,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
   \author{作者}
   \date{\today}
   \logo{\includegraphics{照片名称}}
-
+  
   % 输出标题页（需要在帧中操作）
   \begin{frame}
   \titlepage
@@ -609,7 +614,7 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
     \begin{frame}{目录}
     \tableofcontents
     \end{frame}
-
+    
     \section{勾股定理在古代}
     \begin{frame}
     \sectionpage
@@ -625,17 +630,17 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
 
     ```tex
     \begin{frame}
-
+    
     \begin{block}{块标题}
     这是区块
     \end{block}
-
+    
     \pause	% 在这里引入停顿
-
+    
     \begin{block}{}	% 没有标题的区块
     这是另一个区块
     \end{block}
-
+    
     \end{frame}
     ```
   - 定理、证明等环境也将以区块的形式展现
@@ -648,18 +653,18 @@ ctex宏包的三个文档类：ctexbook、ctexrep、ctexart提供了 `\CTEXsetup
     ```tex
     \useinnertheme{主题名称}
     % 可选：default、circles、rectangles、rounded、inmargin
-
+    
     \useoutertheme{主题名称}
     % 可选：default、infolines、miniframes、smoothbars、sidebar、split、shadow、tree、smoothtree
-
+    
     \usecolortheme{主题名称}
     % 可选：default、albatross、beaver、beetle、crane、dolphin、dove、fly、lily、orchid、rose、seagull、seahorse、sidebartab、structure、whale、wolverine
-
+    
     \usefonttheme{主题名称}
     % 可选：default、serif
     ```
 
-## 12. 参考文献
+## 12.参考文献
 
 bib文件的属性用法和特点：https://blog.csdn.net/AbaloneVH/article/details/131604893
 

@@ -98,6 +98,8 @@ plugins:
       draft: true
   - search
   - glightbox
+  - statistics:
+      page_check_metadata: counter
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
@@ -162,5 +164,6 @@ nav:
     - note/index.md
     - Markdown 学习笔记: note/Markdown Extensions.md
     - LaTeX 学习笔记: note/LaTeX学习笔记.md
+    - C# 学习笔记: note/C#学习笔记.md
   - 关于 About:
     - about/index.md

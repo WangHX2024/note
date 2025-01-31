@@ -1,4 +1,10 @@
+---
+counter: true
+comments: true
+---
+
 # Markdown 拓展语法
+
 ## 基础语法
 ![Markdown 基础语法表](/pic/Markdown Extensions.png)
 
@@ -236,7 +242,7 @@ int main()
 !!! note "告诫标题"
     
     这是告诫文本，开头缩进4个空格。
-    
+
 </div>
 
 代码：
