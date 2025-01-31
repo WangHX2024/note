@@ -14,28 +14,25 @@ theme:
     repo: fontawesome/brands/github
     edit: material/pencil
   custom_dir: overrides
-  palette: 
-    # Palette toggle for automatic mode
+  palette:
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/brightness-auto
-        name: 跟随系统
-    # Palette toggle for light mode
+        icon: material/link
+        name: 关闭自动模式
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: blue grey
-      accent: indigo
+      accent: blue
       toggle:
-        icon: material/brightness-7
-        name: 浅色模式
-    # Palette toggle for dark mode
+        icon: material/toggle-switch
+        name: 切换至夜间模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       accent: indigo
       toggle:
-        icon: material/brightness-4
-        name: 深色模式
+        icon: material/toggle-switch-off-outline
+        name: 切换至日间模式
   font:
     text: LXGW WenKai Screen GB Screen
     code: JetBrains Mono
@@ -97,6 +94,7 @@ plugins:
   - blog:
       blog_dir: blog
       blog_toc: true
+      draft: true
   - search
   - glightbox
   - git-revision-date-localized:
