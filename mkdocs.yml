@@ -4,7 +4,7 @@ site_description: 王浩雄的个人主页
 repo_name: "WangHX2024/blog"
 repo_url: https://github.com/WangHX2024/blog
 edit_uri: blob/master/docs
-copyright: Copyright &copy; 2023 - 2025 WangHX</p>
+copyright: Copyright &copy; 2023 - 2025 WangHX All Rights Reserved.
 
 theme:
   name: 'material'
@@ -108,6 +108,9 @@ plugins:
         - index.md
         - home/comment.md
         - home/link.md
+  - git-committers:
+      repository: wanghx2024/blog
+      branch: master
 
 markdown_extensions:
   - admonition
