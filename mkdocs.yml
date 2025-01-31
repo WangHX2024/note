@@ -50,11 +50,13 @@ theme:
     - search.share
     - search.suggest
     - content.action.view
+    - content.action.edit
     - content.code.copy
     - content.code.annotate
+    
 
 extra:
-  generator: false
+  generator: true
   social:
     - icon: fontawesome/brands/weixin
       link: /pics/wechat.png
