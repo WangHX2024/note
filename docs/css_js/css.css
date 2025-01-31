@@ -1,0 +1,164 @@
+/* 定义根元素的CSS变量 */
+:root {
+    /* 设置文本字体为 'JetBrains Mono' 和 'LXGW WenKai Screen' */
+    --md-text-font: "JetBrains Mono", "LXGW WenKai Screen"; 
+    /* 设置代码字体为 'JetBrains Mono' */
+    --md-code-font: "JetBrains Mono"; 
+    /* 设置统一圆角的大小为8px */
+    --base-border-radius: 8px; 
+}
+
+/* 设置不同标题的字体权重 */
+.md-typeset h1, .md-typeset h2 {
+    font-weight: 500; /* h1和h2加粗 */
+}
+
+/* 设置h3的字体权重为400 */
+.md-typeset h3 {
+    font-weight: 400;
+}
+
+/* 设置h1, h2, h3, h4的字母间距为0 */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+    letter-spacing: 0;
+}
+
+/* 设置行内代码（非pre标签内的代码）的字体大小继承自父元素 */
+.md-typeset code:not(pre code) {
+    font-size: inherit;
+}
+
+
+/* 设置不同颜色方案下的变量值 */
+[data-md-color-scheme="default"] {
+    /* 设置主文字颜色 */
+    --md-primary-fg-color: rgb(94, 159, 191);
+    /* 设置背景颜色为浅灰色 */
+    --md-primary-bg-color: #fafafa;
+    /* 设置默认背景颜色为半透明白色 */
+    --md-default-bg-color: rgba(255, 255, 255,0);
+    /* 设置footer文字颜色为黑色 */
+    --md-footer-fg-color: #000000;
+    /* 设置footer背景颜色为浅灰色 */
+    --md-footer-bg-color: #efefef;
+    /* 设置链接颜色 */
+    --md-typeset-a-color: rgb(94, 159, 191);
+    /* 设置强调文字颜色 */
+    --md-accent-fg-color: rgb(94, 159, 191);
+    /* 设置代码背景颜色 */
+    --md-code-bg-color: rgb(245, 245, 245);
+    /* 设置代码高亮名称颜色为黑色 */
+    --md-code-hl-name-color: #000;
+    /* 设置代码高亮注释颜色为灰色 */
+    --md-code-hl-comment-color: #8b8d95;
+    /* 设置背景图固定，且不重复 */
+
+    --md-footer-bg-color--dark: #efefef;
+    --md-footer-fg-color--light: #000000;
+    --md-footer-fg-color--lighter: #000000;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(180deg, #5e9fbf29 0%, rgb(255 255 255) 100%);
+}
+
+/* 定义Slate模式下的配色 */
+[data-md-color-scheme="slate"] {
+    /* 设置背景色为深色 */
+    --md-default-bg-color: #161616;
+    /* 设置主文字颜色为深色 */
+    --md-primary-fg-color: #0d0d0d;
+    /* 设置footer文字颜色为白色 */
+    --md-footer-fg-color: #fff;
+    /* 设置footer背景色为深色 */
+    --md-footer-bg-color: #0d0d0d;
+    --md-footer-bg-color--dark: #0d0d0d;
+    /* 设置footer浅色模式下的文字颜色为白色 */
+    --md-footer-fg-color--light: #fff;
+    /* 设置代码背景颜色为深色 */
+    --md-code-bg-color: #1d1d1d;
+    /* 设置链接颜色为灰色 */
+    --md-typeset-a-color: #d3d3d3;
+}
+
+/* 禁止在Slate模式下显示不同的图标模式 */
+body:not([data-md-prefers-color-scheme=true]) [data-md-color-scheme=slate] .md-icon .light-mode,
+body:not([data-md-prefers-color-scheme=true]) [data-md-color-scheme=slate] .md-icon .system-mode,
+body:not([data-md-prefers-color-scheme=true]) [data-md-color-scheme=slate] .md-icon .unknown-mode {
+    display: none;
+}
+
+/* 禁止在用户偏好深色模式下显示图标模式 */
+body[data-md-prefers-color-scheme=true] .md-icon .dark-mode,
+body[data-md-prefers-color-scheme=true] .md-icon .light-mode,
+body[data-md-prefers-color-scheme=true] .md-icon .unknown-mode {
+    display: none;
+}
+
+/* 屏幕宽度 < 59.9375em 时，设置导航栏背景颜色为主色 */
+@media screen and (max-width: 59.9375em) {
+    .md-nav__source {
+        background-color: var(--md-primary-fg-color);
+    }
+}
+
+/* 屏幕宽度 < 76.1875em 时，设置导航标题背景颜色为主色 */
+@media screen and (max-width: 76.1875em) {
+    .md-nav--primary .md-nav__title {
+        background-color: var(--md-primary-fg-color);
+    }
+}
+
+/* 设置表格的边角为统一的圆角，并添加阴影效果 */
+.md-typeset table:not([class]) {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* 阴影 */
+}
+
+/* 设置卡片列表项的圆角和阴影效果，并添加过渡效果 */
+.md-typeset .grid.cards > ul > li {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1); /* 阴影 */
+    transition: box-shadow 0.3s ease; /* 鼠标悬停过渡效果 */
+}
+
+/* 鼠标悬停时增强卡片的阴影效果 */
+.md-typeset .grid.cards > ul > li:hover {
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3); /* 增加阴影 */
+}
+
+/* 设置按钮的圆角、内边距、背景颜色、文字颜色，并定义过渡效果 */
+.md-typeset .md-button {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    padding: 0.5rem 1rem; /* 内边距 */
+    background-color: var(--md-primary-fg-color); /* 背景色 */
+    color: white; /* 文字颜色 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 鼠标悬停为指针 */
+    transition: background-color 0.3s ease; /* 背景色过渡效果 */
+}
+
+/* 鼠标悬停时修改按钮的背景色 */
+.md-typeset .md-button:hover {
+    background-color: rgb(72, 129, 164); /* 悬停背景色 */
+}
+
+/* 设置搜索表单的圆角和内边距 */
+.md-search__form {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    padding: 0.5rem; /* 内边距 */
+}
+
+/* 当搜索框被选中时，设置顶部圆角 */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+    border-top-right-radius: var(--base-border-radius); /* 右上圆角 */
+    border-top-left-radius: var(--base-border-radius); /* 左上圆角 */
+    background-color: rgba(255, 255, 255,1);
+}
+
+/* 设置搜索输出框的圆角 */
+[dir="ltr"] .md-search__output {
+    border-bottom-right-radius: var(--base-border-radius); /* 右下圆角 */
+    border-bottom-left-radius: var(--base-border-radius); /* 左下圆角 */
+    background-color: rgba(255, 255, 255,1);
+
+}

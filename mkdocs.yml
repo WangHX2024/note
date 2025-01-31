@@ -1,10 +1,10 @@
 site_name: 王浩雄的个人主页
-site_url: https://WangHX2024.github.io/blog
+site_url: https://haoxiong.wang
 site_description: 王浩雄的个人主页
 repo_name: "WangHX2024/blog"
 repo_url: https://github.com/WangHX2024/blog
 edit_uri: blob/master/docs
-copyright: Copyright &copy; 2023 - 2025 WangHX All Rights Reserved.
+copyright: Copyright &copy; 2023 - 2025 WangHX. All Rights Reserved.
 
 theme:
   name: 'material'
@@ -21,15 +21,11 @@ theme:
         name: 关闭自动模式
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: blue grey
-      accent: blue
       toggle:
         icon: material/toggle-switch
         name: 切换至夜间模式
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
       toggle:
         icon: material/toggle-switch-off-outline
         name: 切换至日间模式
@@ -85,19 +81,14 @@ extra:
             <center> 感谢支持</center>
             
 extra_javascript:
-  - javascripts/katex.js
+  - css_js/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
-  - css/extra.css
+  - css_js/css.css
   - https://unpkg.com/katex@0/dist/katex.min.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-  - https://note.tonycrane.cc/css/tasklist.css
-  - https://note.tonycrane.cc/css/custom.css
-  - https://note.tonycrane.cc/css/card.css
-  - https://note.tonycrane.cc/css/flink.css
-  - https://note.tonycrane.cc/css/changelog_extra.css
   
 plugins:
   - tags
