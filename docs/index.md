@@ -1,6 +1,7 @@
 ---
 hide:
   - footer
+  - feedback
 ---
 
 # 欢迎来到王浩雄的个人主页
