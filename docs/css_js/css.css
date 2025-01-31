@@ -36,7 +36,7 @@
     /* 设置背景颜色为浅灰色 */
     --md-primary-bg-color: #fafafa;
     /* 设置默认背景颜色为半透明白色 */
-    --md-default-bg-color: rgba(255, 255, 255,0);
+    --md-default-bg-color: rgba(255, 255, 255);
     /* 设置footer文字颜色为黑色 */
     --md-footer-fg-color: #000000;
     /* 设置footer背景颜色为浅灰色 */
@@ -152,13 +152,10 @@ body[data-md-prefers-color-scheme=true] .md-icon .unknown-mode {
 [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
     border-top-right-radius: var(--base-border-radius); /* 右上圆角 */
     border-top-left-radius: var(--base-border-radius); /* 左上圆角 */
-    background-color: rgba(255, 255, 255,1);
 }
 
 /* 设置搜索输出框的圆角 */
 [dir="ltr"] .md-search__output {
     border-bottom-right-radius: var(--base-border-radius); /* 右下圆角 */
     border-bottom-left-radius: var(--base-border-radius); /* 左下圆角 */
-    background-color: rgba(255, 255, 255,1);
-
 }

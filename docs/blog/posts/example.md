@@ -20,3 +20,8 @@ comments: true
 <!-- more -->
 
 这是文章的正文。
+
+这是PDF格式附件。
+
+<embed src="/files/example/test.pdf" width="600" height="500" type="application/pdf">
+
