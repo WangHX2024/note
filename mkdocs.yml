@@ -108,9 +108,7 @@ plugins:
         - index.md
         - home/comment.md
         - home/link.md
-  - git-committers:
-      repository: wanghx2024/blog
-      branch: master
+  - git-authors
 
 markdown_extensions:
   - admonition
