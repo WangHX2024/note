@@ -101,9 +101,9 @@ plugins:
       timezone: Asia/Shanghai
       locale: zh
       exclude:
-        - index.md
-        - comment.md
-        - link.md
+        - home/index.md
+        - home/comment.md
+        - home/link.md
 
 markdown_extensions:
   - admonition
@@ -141,14 +141,12 @@ markdown_extensions:
 
 nav:
   - 主页 Home: 
-    - index.md
-    - 留言板: comment.md
-    - 友链: link.md
+    - home/index.md
+    - 留言板: home/comment.md
+    - 友链: home/link.md
   - 博客 Blog:
     - blog/index.md
   - 笔记 Note: 
     - note/index.md
-    - Markdown 扩展语法: note/Markdown Extensions.md
   - 关于 About:
     - about/index.md
-
