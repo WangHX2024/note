@@ -84,9 +84,15 @@ extra:
           data: 1
           note: >- 
             <center> 感谢支持</center>
+            
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
 
 extra_css:
-  - _css/extra.css
+  - https://unpkg.com/katex@0/dist/katex.min.css
+  - css/extra.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
 
 plugins:
@@ -115,9 +121,14 @@ plugins:
 
 markdown_extensions:
   - admonition
-  - pymdownx.details
+  - tables
   - attr_list
   - md_in_html
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -126,13 +137,11 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
-  - tables
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - footnotes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
@@ -141,11 +150,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-  - toc:
-      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
   - 主页 Home: 
