@@ -165,5 +165,7 @@ nav:
     - blog/index.md
   - 笔记 Note: 
     - note/index.md
+    - Markdown 学习笔记:note/Markdown Extensions.md
+    - LaTeX 学习笔记：note/LaTeX学习笔记.md
   - 关于 About:
     - about/index.md
