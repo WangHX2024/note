@@ -55,7 +55,7 @@ extra:
   generator: false
   social:
     - icon: fontawesome/brands/weixin
-      link: /docs/pics/wechat.png
+      link: /pics/wechat.png
       name: 微信公众号
     - icon: fontawesome/brands/qq 
       link: https://3047901150.qzone.qq.com
