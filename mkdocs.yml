@@ -51,7 +51,6 @@ theme:
     - content.code.copy
     - content.code.annotate
     
-
 extra:
   generator: true
   social:
@@ -94,7 +93,12 @@ extra_css:
   - css/extra.css
   - https://unpkg.com/katex@0/dist/katex.min.css
   - https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
-
+  - https://note.tonycrane.cc/css/tasklist.css
+  - https://note.tonycrane.cc/css/custom.css
+  - https://note.tonycrane.cc/css/card.css
+  - https://note.tonycrane.cc/css/flink.css
+  - https://note.tonycrane.cc/css/changelog_extra.css
+  
 plugins:
   - tags
   - blog:
