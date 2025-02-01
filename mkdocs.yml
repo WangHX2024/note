@@ -51,7 +51,7 @@ extra:
   generator: true
   social:
     - icon: fontawesome/brands/weixin
-      link: /pics/wechat.png
+      link: /files/wechat.png
       name: 微信公众号
     - icon: fontawesome/brands/qq 
       link: https://3047901150.qzone.qq.com
@@ -71,14 +71,14 @@ extra:
   analytics:
     provider: google
     property: G-PLSZR8E9QE
-    feedback:
-      title: 激励
-      ratings:
-        - icon: fontawesome/regular/hand-back-fist
-          name: 激励
-          data: 1
-          note: >- 
-            <center> 感谢支持</center>
+    # feedback:
+    #   title: 激励
+    #   ratings:
+    #     - icon: fontawesome/regular/hand-back-fist
+    #       name: 激励
+    #       data: 1
+    #       note: >- 
+    #         <center> 感谢支持</center>
             
 extra_javascript:
   - css_js/katex.js
@@ -106,15 +106,10 @@ plugins:
       timezone: Asia/Shanghai
       locale: zh
       exclude:
-        - index.md
-        - home/comment.md
-        - home/link.md
   - git-committers:
       repository: wanghx2024/blog
       exclude:
-        - index.md
-        - home/comment.md
-        - home/link.md
+
 
 markdown_extensions:
   - abbr
@@ -157,7 +152,7 @@ nav:
   - 主页 Home: 
     - index.md
     - 留言板: home/comment.md
-    - 友链: home/link.md
+    - 链接: home/link.md
   - 博客 Blog:
     - blog/index.md
   - 笔记 Note: 
@@ -165,5 +160,3 @@ nav:
     - Markdown 学习笔记: note/Markdown Extensions.md
     - LaTeX 学习笔记: note/LaTeX学习笔记.md
     - C# 学习笔记: note/C#学习笔记.md
-  - 关于 About:
-    - about/index.md

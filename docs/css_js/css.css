@@ -4,8 +4,8 @@
     --md-text-font: "JetBrains Mono", "LXGW WenKai Screen"; 
     /* 设置代码字体为 'JetBrains Mono' */
     --md-code-font: "JetBrains Mono"; 
-    /* 设置统一圆角的大小为8px */
-    --base-border-radius: 8px; 
+    /* 设置统一圆角的大小为12px */
+    --base-border-radius: 12px; 
 }
 
 /* 设置不同标题的字体权重 */
@@ -36,7 +36,7 @@
     /* 设置背景颜色为浅灰色 */
     --md-primary-bg-color: #fafafa;
     /* 设置默认背景颜色为半透明白色 */
-    --md-default-bg-color: rgba(255, 255, 255,0);
+    --md-default-bg-color: rgba(255, 255, 255,0.5);
     /* 设置footer文字颜色为黑色 */
     --md-footer-fg-color: #000000;
     /* 设置footer背景颜色为浅灰色 */
@@ -162,3 +162,62 @@ body[data-md-prefers-color-scheme=true] .md-icon .unknown-mode {
     background-color: rgba(255, 255, 255,1);
 
 }
+
+/* 设置图片的圆角和阴影效果 */
+.image{
+    width: 30% ;
+    border-radius: var(--base-border-radius); /* 圆角 */
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3); /* 增加阴影 */
+}
+
+/*友链*/
+.flink-list {
+    overflow: auto;
+    padding: 10px 10px 0;
+    text-align: center;
+  }
+  .flink-list a {
+    color: #4a4a4a;
+  }
+  [data-md-color-scheme="slate"] .flink-list a {
+    color: rgba(255,255,255,0.7);
+  }
+  .flink-list-item {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 15px 7px;
+    width: calc(100% - 15px);
+    height: 90px;
+    border-radius: 12px;
+    line-height: 17px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    transition: 0.25s;
+  }
+  .flink-item-icon {
+    float: left;
+    overflow: hidden;
+    margin: 15px 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+  }
+  .flink-item-name {
+    padding: 19px 10px 0 0;
+    height: 40px;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  .flink-item-desc {
+    padding: 13px 10px 16px 0;
+    height: 50px;
+    font-size: 0.93em;
+  }
+  .flink-list-item:hover {
+    background-color: rgba(68,138,255,.1);
+  }
+  .flink-list-item {
+    width: calc(100% - 15px) !important;
+  }
+  
