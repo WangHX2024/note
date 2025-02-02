@@ -30,7 +30,7 @@ title: 主页
 
     - [LaTeX 学习笔记](/note/LaTeX学习笔记)
 
-    - [C# 学习笔记](/note/C#学习笔记)
+    - [C# 学习笔记](/note/C%23学习笔记)
 
 
 
@@ -74,5 +74,4 @@ title: 主页
       </script>
       </font>
     </body>
-
 

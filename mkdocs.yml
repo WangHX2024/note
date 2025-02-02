@@ -4,7 +4,7 @@ site_description: 王浩雄的个人主页
 repo_name: "WangHX2024/blog"
 repo_url: https://github.com/WangHX2024/blog
 edit_uri: blob/master/docs
-copyright: Copyright &copy; 2023 - 2025 WangHX. All Rights Reserved.
+copyright: Copyright &copy; 2023 - 2025 WangHX. <a href="https://beian.miit.gov.cn">冀ICP备2024085995号</a>
 
 theme:
   name: 'material'
