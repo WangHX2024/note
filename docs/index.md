@@ -28,9 +28,9 @@ title: 主页
 
     - [Markdown 学习笔记](/note/Markdown Extensions)
 
-    - [LaTeX 学习笔记](/note/LaTeX学习笔记)
+    - [LaTeX 学习笔记](/note/LaTeX学习笔记/)
 
-    - [C# 学习笔记](/note/C%23学习笔记)
+    - [C# 学习笔记](/note/C%23学习笔记/)
 
 
 
