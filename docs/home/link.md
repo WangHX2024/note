@@ -21,19 +21,9 @@ comments: true
         <div class="flink-item-icon">
           <img src="/files/example.jpg"/>
         </div>
-        <a href="https://mypage.haoxiong.wang" title="" target="_blank">
-            <div class="flink-item-name">我的旧版网页</div>
-            <div class="flink-item-desc">我在“微信小程序综合实践”课程中手写的简略版个人网页demo。</div>
-        </a>
-    </div>
-
-    <div class="flink-list-item">
-        <div class="flink-item-icon">
-          <img src="https://img0.baidu.com/it/u=1547888333,2722377946&fm=253&fmt=auto&app=138&f=JPEG?w=200&h=300"/>
-        </div>
-        <a href="https://guess.haoxiong.wang" title="" target="_blank">
-            <div class="flink-item-name">猜数字游戏</div>
-            <div class="flink-item-desc">A simple practice of JavaScript.</div>
+        <a href="https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda" title="" target="_blank">
+            <div class="flink-item-name">24-25春夏学期课程笔记</div>
+            <div class="flink-item-desc">实时更新的Notion站点。</div>
         </a>
     </div>
 </div>

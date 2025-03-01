@@ -7,7 +7,7 @@ title: 主页
 
 <center><font  color= #518FC1 size=6>王浩雄的个人主页</font>
 
-<p><font color="#B9B9B9">记住我的名字，就不会忘记这个网站的地址 <b>https://haoxiong.wang</b></font></p>
+<p><font color="#B9B9B9">记住我的名字，就不会忘记这个网站的地址 <b>https://note.haoxiong.wang</b></font></p>
 </center>
 
 <div class="grid cards" markdown>
@@ -16,7 +16,8 @@ title: 主页
 
     ---
 
-    本网站正在加紧施工中~ 期待有朝一日网站正式开放~
+    2024-2025春夏课程笔记正在编写中~ 请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
+
 
 </div>
 
