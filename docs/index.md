@@ -16,7 +16,7 @@ title: 主页
 
     ---
 
-    2024-2025春夏课程笔记正在编写中~ 请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
+    2024-2025 春夏课程笔记正在编写中~ 请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
 
 
 </div>
