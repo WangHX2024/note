@@ -8,7 +8,7 @@
 
     笔记正在努力编写中~
     
-    2024-2025 春夏课程笔记，请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
+    2024-2025 春夏课程笔记正在实时更新中，请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
 
 </div>
 
@@ -18,10 +18,15 @@
 
     ---
 
-    - [x] [Markdown 学习笔记](/note/Markdown Extensions)
+    - [x] [数字逻辑设计](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数字逻辑设计 19b9c6b6155b806c8644e4a55f0b8dfb/index.md)
 
-    - [ ] [LaTeX 学习笔记](/note/LaTeX学习笔记)
+    - [ ] [计算机体系结构](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/计算机体系结构 19b9c6b6155b8024a072ca3bd97e46c8/index.md)
 
-    - [ ] [C# 学习笔记](/note/C%23学习笔记/)
+    - [ ] [数据库系统](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数据库系统 19b9c6b6155b80d695c5ec0cf8168783/index.md)
+
+    - [ ] [面向对象程序设计](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/面向对象程序设计 19b9c6b6155b80459f10d6623d7c42e7/index.md)
+
+    - [ ] [离散数学](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/离散数学 19b9c6b6155b80108585d9246eeefe70/index.md)
+
 
 </div>

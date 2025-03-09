@@ -22,8 +22,8 @@ comments: true
           <img src="/files/example.jpg"/>
         </div>
         <a href="https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda" title="" target="_blank">
-            <div class="flink-item-name">24-25春夏学期课程笔记</div>
-            <div class="flink-item-desc">实时更新的Notion站点。</div>
+            <div class="flink-item-name">24-25 春夏学期课程笔记</div>
+            <div class="flink-item-desc">实时更新的 Notion 站点。</div>
         </a>
     </div>
 </div>

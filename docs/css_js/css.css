@@ -8,138 +8,62 @@
     --base-border-radius: 12px; 
 }
 
-/* 设置不同标题的字体权重 */
-.md-typeset h1, .md-typeset h2 {
-    font-weight: 500; /* h1和h2加粗 */
-}
-
-/* 设置h3的字体权重为400 */
-.md-typeset h3 {
-    font-weight: 400;
-}
-
-/* 设置h1, h2, h3, h4的字母间距为0 */
-.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
-    letter-spacing: 0;
-}
-
-/* 设置行内代码（非pre标签内的代码）的字体大小继承自父元素 */
-.md-typeset code:not(pre code) {
-    font-size: inherit;
-}
-
-
 /* 设置不同颜色方案下的变量值 */
 [data-md-color-scheme="default"] {
     /* 设置主文字颜色 */
     --md-primary-fg-color: rgb(94, 159, 191);
+    --md-primary-fg-color--dark: rgb(94, 159, 191);
+    /* 设置链接颜色 */
+    --md-typeset-a-color: rgb(94, 159, 191);
+    /* 设置强调文字颜色 */
+    --md-accent-fg-color: rgb(139, 194, 222);
     /* 设置背景颜色为浅灰色 */
     --md-primary-bg-color: #fafafa;
-    /* 设置默认背景颜色为半透明白色 */
-    --md-default-bg-color: rgba(255, 255, 255,0.5);
     /* 设置footer文字颜色为黑色 */
     --md-footer-fg-color: #000000;
     /* 设置footer背景颜色为浅灰色 */
     --md-footer-bg-color: #efefef;
-    /* 设置链接颜色 */
-    --md-typeset-a-color: rgb(94, 159, 191);
-    /* 设置强调文字颜色 */
-    --md-accent-fg-color: rgb(94, 159, 191);
-    /* 设置代码背景颜色 */
-    --md-code-bg-color: rgb(245, 245, 245);
-    /* 设置代码高亮名称颜色为黑色 */
-    --md-code-hl-name-color: #000;
-    /* 设置代码高亮注释颜色为灰色 */
-    --md-code-hl-comment-color: #8b8d95;
-    /* 设置背景图固定，且不重复 */
-
     --md-footer-bg-color--dark: #efefef;
     --md-footer-fg-color--light: #000000;
     --md-footer-fg-color--lighter: #000000;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(180deg, #5e9fbf29 0%, rgb(255 255 255) 100%);
 }
-
-/* 定义Slate模式下的配色 */
 [data-md-color-scheme="slate"] {
-    /* 设置背景色为深色 */
-    --md-default-bg-color: #161616;
-    /* 设置主文字颜色为深色 */
-    --md-primary-fg-color: #0d0d0d;
+    /* 设置主文字颜色 */
+    --md-primary-fg-color: rgb(94, 159, 191);
+    --md-primary-fg-color--dark: rgb(94, 159, 191);
+    /* 设置链接颜色 */
+    --md-typeset-a-color: rgb(94, 159, 191);
+    /* 设置强调文字颜色 */
+    --md-accent-fg-color: rgb(139, 194, 222);
+    /* 设置背景颜色为深灰色 */
+    --md-primary-bg-color: #1e1e1e;
     /* 设置footer文字颜色为白色 */
-    --md-footer-fg-color: #fff;
-    /* 设置footer背景色为深色 */
-    --md-footer-bg-color: #0d0d0d;
-    --md-footer-bg-color--dark: #0d0d0d;
-    /* 设置footer浅色模式下的文字颜色为白色 */
-    --md-footer-fg-color--light: #fff;
-    /* 设置代码背景颜色为深色 */
-    --md-code-bg-color: #1d1d1d;
-    /* 设置链接颜色为灰色 */
-    --md-typeset-a-color: #d3d3d3;
+    --md-footer-fg-color: #ffffff;
+    /* 设置footer背景颜色为深灰色 */
+    --md-footer-bg-color: #1e1e1e;
+    --md-footer-bg-color--dark: #1e1e1e;
+    --md-footer-fg-color--light: #ffffff;
+    --md-footer-fg-color--lighter: #ffffff;
 }
 
-/* 禁止在Slate模式下显示不同的图标模式 */
-body:not([data-md-prefers-color-scheme=true]) [data-md-color-scheme=slate] .md-icon .light-mode,
-body:not([data-md-prefers-color-scheme=true]) [data-md-color-scheme=slate] .md-icon .system-mode,
-body:not([data-md-prefers-color-scheme=true]) [data-md-color-scheme=slate] .md-icon .unknown-mode {
-    display: none;
-}
-
-/* 禁止在用户偏好深色模式下显示图标模式 */
-body[data-md-prefers-color-scheme=true] .md-icon .dark-mode,
-body[data-md-prefers-color-scheme=true] .md-icon .light-mode,
-body[data-md-prefers-color-scheme=true] .md-icon .unknown-mode {
-    display: none;
-}
-
-/* 屏幕宽度 < 59.9375em 时，设置导航栏背景颜色为主色 */
-@media screen and (max-width: 59.9375em) {
-    .md-nav__source {
-        background-color: var(--md-primary-fg-color);
-    }
-}
-
-/* 屏幕宽度 < 76.1875em 时，设置导航标题背景颜色为主色 */
-@media screen and (max-width: 76.1875em) {
-    .md-nav--primary .md-nav__title {
-        background-color: var(--md-primary-fg-color);
-    }
-}
-
-/* 设置表格的边角为统一的圆角，并添加阴影效果 */
+/* 设置表格的边角的圆角 */
 .md-typeset table:not([class]) {
     border-radius: var(--base-border-radius); /* 圆角 */
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* 阴影 */
+    transition: box-shadow 0.3s ease; /* 鼠标悬停过渡效果 */
 }
 
-/* 设置卡片列表项的圆角和阴影效果，并添加过渡效果 */
+/* 设置卡片列表项的圆角 */
 .md-typeset .grid.cards > ul > li {
     border-radius: var(--base-border-radius); /* 圆角 */
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.1); /* 阴影 */
     transition: box-shadow 0.3s ease; /* 鼠标悬停过渡效果 */
 }
 
 /* 鼠标悬停时增强卡片的阴影效果 */
 .md-typeset .grid.cards > ul > li:hover {
-    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3); /* 增加阴影 */
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1); /* 增加阴影 */
 }
-
-/* 设置按钮的圆角、内边距、背景颜色、文字颜色，并定义过渡效果 */
-.md-typeset .md-button {
-    border-radius: var(--base-border-radius); /* 圆角 */
-    padding: 0.5rem 1rem; /* 内边距 */
-    background-color: var(--md-primary-fg-color); /* 背景色 */
-    color: white; /* 文字颜色 */
-    border: none; /* 无边框 */
-    cursor: pointer; /* 鼠标悬停为指针 */
-    transition: background-color 0.3s ease; /* 背景色过渡效果 */
-}
-
-/* 鼠标悬停时修改按钮的背景色 */
-.md-typeset .md-button:hover {
-    background-color: rgb(72, 129, 164); /* 悬停背景色 */
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+    box-shadow: 0 0 1em rgba(255, 255, 255, 0.1); /* 增加阴影 */
 }
 
 /* 设置搜索表单的圆角和内边距 */
@@ -152,15 +76,12 @@ body[data-md-prefers-color-scheme=true] .md-icon .unknown-mode {
 [data-md-toggle="search"]:checked ~ .md-header .md-search__form {
     border-top-right-radius: var(--base-border-radius); /* 右上圆角 */
     border-top-left-radius: var(--base-border-radius); /* 左上圆角 */
-    background-color: rgba(255, 255, 255,1);
 }
 
 /* 设置搜索输出框的圆角 */
 [dir="ltr"] .md-search__output {
     border-bottom-right-radius: var(--base-border-radius); /* 右下圆角 */
     border-bottom-left-radius: var(--base-border-radius); /* 左下圆角 */
-    background-color: rgba(255, 255, 255,1);
-
 }
 
 /* 设置图片的圆角和阴影效果 */
@@ -170,344 +91,53 @@ body[data-md-prefers-color-scheme=true] .md-icon .unknown-mode {
     box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3); /* 增加阴影 */
 }
 
-/*友链*/
+/* 友链 */
 .flink-list {
     overflow: auto;
     padding: 10px 10px 0;
     text-align: center;
-  }
-  .flink-list a {
+}
+.flink-list a {
     color: #4a4a4a;
-  }
-  [data-md-color-scheme="slate"] .flink-list a {
+}
+[data-md-color-scheme="slate"] .flink-list a {
     color: rgba(255,255,255,0.7);
-  }
-  .flink-list-item {
+}
+.flink-list-item {
     position: relative;
     float: left;
     overflow: hidden;
     margin: 15px 7px;
     width: calc(100% - 15px);
     height: 90px;
-    border-radius: 12px;
+    border-radius: var(--base-border-radius);
     line-height: 17px;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     transition: 0.25s;
-  }
-  .flink-item-icon {
+}
+.flink-item-icon {
     float: left;
     overflow: hidden;
     margin: 15px 30px;
     width: 60px;
     height: 60px;
     border-radius: 35px;
-  }
-  .flink-item-name {
+}
+.flink-item-name {
     padding: 19px 10px 0 0;
     height: 40px;
     font-weight: bold;
     font-size: 1.3em;
-  }
-  .flink-item-desc {
+}
+.flink-item-desc {
     padding: 13px 10px 16px 0;
     height: 50px;
     font-size: 0.93em;
-  }
-  .flink-list-item:hover {
+}
+.flink-list-item:hover {
     background-color: rgba(68,138,255,.1);
-  }
-  .flink-list-item {
+}
+.flink-list-item {
     width: calc(100% - 15px) !important;
-  }
-  
-/* 提示框美化 */
-
-.md-typeset .admonition, .md-typeset details {
-    font-size: var(--text-font-size);
-    border-width: 1px;
-}
-
-.md-typeset .admonition.note,
-.md-typeset :is(.admonition,details):is(.note) {
-    border-color: rgba(68, 138, 255, 0.1);
-}
-.md-typeset .note > .admonition-title,
-.md-typeset :is(.note)>:is(.admonition-title,summary) {
-    background-color: rgba(68, 138, 255, 0.1);
-}
-.md-typeset .note > .admonition-title::before,
-.md-typeset :is(.note)>:is(.admonition-title,summary):before {
-    background-color: rgb(68, 138, 255);
-}
-
-.md-typeset .admonition.abstract,
-.md-typeset :is(.admonition,details):is(.abstract) {
-    border-color: rgba(0, 176, 255, 0.1);
-}
-.md-typeset .abstract > .admonition-title,
-.md-typeset :is(.abstract)>:is(.admonition-title,summary) {
-    background-color: rgba(0, 176, 255, 0.1);
-}
-.md-typeset .abstract > .admonition-title::before,
-.md-typeset :is(.abstract)>:is(.admonition-title,summary):before {
-    background-color: rgb(0, 176, 255);
-}
-
-.md-typeset .admonition.info,
-.md-typeset :is(.admonition,details):is(.info) {
-    border-color: rgba(0, 184, 212, 0.1);
-}
-.md-typeset .info > .admonition-title,
-.md-typeset :is(.info)>:is(.admonition-title,summary) {
-    background-color: rgba(0, 184, 212, 0.1);
-}
-.md-typeset .info > .admonition-title::before,
-.md-typeset :is(.info)>:is(.admonition-title,summary):before {
-    background-color: rgb(0, 184, 212);
-}
-
-.md-typeset .admonition.tip,
-.md-typeset :is(.admonition,details):is(.tip) {
-    border-color: rgba(4, 248, 235, 0.1);
-}
-.md-typeset .tip > .admonition-title,
-.md-typeset :is(.tip)>:is(.admonition-title,summary) {
-    background-color: rgba(4, 248, 235, 0.1);
-}
-.md-typeset .tip > .admonition-title::before,
-.md-typeset :is(.tip)>:is(.admonition-title,summary):before {
-    background-color: rgb(4, 248, 235);
-}
-
-.md-typeset .admonition.success,
-.md-typeset :is(.admonition,details):is(.success) {
-    border-color: rgba(0, 200, 83, 0.1);
-}
-.md-typeset .success > .admonition-title,
-.md-typeset :is(.success)>:is(.admonition-title,summary) {
-    background-color: rgba(0, 200, 83, 0.1);
-}
-.md-typeset .success > .admonition-title::before,
-.md-typeset :is(.success)>:is(.admonition-title,summary):before {
-    background-color: rgb(0, 200, 83);
-}
-
-.md-typeset .admonition.question,
-.md-typeset :is(.admonition,details):is(.question) {
-    border-color: rgba(100, 221, 23, 0.1);
-}
-.md-typeset .question > .admonition-title,
-.md-typeset :is(.question)>:is(.admonition-title,summary) {
-    background-color: rgba(100, 221, 23, 0.1);
-}
-.md-typeset .question > .admonition-title::before,
-.md-typeset :is(.question)>:is(.admonition-title,summary):before {
-    background-color: rgb(100, 221, 23);
-}
-
-.md-typeset .admonition.warning,
-.md-typeset :is(.admonition,details):is(.warning) {
-    border-color: rgba(255, 145, 0, 0.1);
-}
-.md-typeset .warning > .admonition-title,
-.md-typeset :is(.warning)>:is(.admonition-title,summary) {
-    background-color: rgba(255, 145, 0, 0.1);
-}
-.md-typeset .warning > .admonition-title::before,
-.md-typeset :is(.warning)>:is(.admonition-title,summary):before {
-    background-color: rgb(255, 145, 0);
-}
-
-.md-typeset .admonition.failure,
-.md-typeset :is(.admonition,details):is(.failure) {
-    border-color: rgba(255, 82, 82, 0.1);
-}
-.md-typeset .failure > .admonition-title,
-.md-typeset :is(.failure)>:is(.admonition-title,summary) {
-    background-color: rgba(255, 82, 82, 0.1);
-}
-.md-typeset .failure > .admonition-title::before,
-.md-typeset :is(.failure)>:is(.admonition-title,summary):before {
-    background-color: rgb(255, 82, 82);
-}
-
-.md-typeset .admonition.danger,
-.md-typeset :is(.admonition,details):is(.danger) {
-    border-color: rgba(255, 23, 68, 0.1);
-}
-.md-typeset .danger > .admonition-title,
-.md-typeset :is(.danger)>:is(.admonition-title,summary) {
-    background-color: rgba(255, 23, 68, 0.1);
-}
-.md-typeset .danger > .admonition-title::before,
-.md-typeset :is(.danger)>:is(.admonition-title,summary):before {
-    background-color: rgb(255, 23, 68);
-}
-
-.md-typeset .admonition.bug,
-.md-typeset :is(.admonition,details):is(.bug) {
-    border-color: rgba(245, 0, 87, 0.1);
-}
-.md-typeset .bug > .admonition-title,
-.md-typeset :is(.bug)>:is(.admonition-title,summary) {
-    background-color: rgba(245, 0, 87, 0.1);
-}
-.md-typeset .bug > .admonition-title::before,
-.md-typeset :is(.bug)>:is(.admonition-title,summary):before {
-    background-color: rgb(245, 0, 87);
-}
-
-.md-typeset .admonition.quote,
-.md-typeset :is(.admonition,details):is(.quote) {
-    border-color: rgba(158, 158, 158, 0.1);
-}
-.md-typeset .quote > .admonition-title,
-.md-typeset :is(.quote)>:is(.admonition-title,summary) {
-    background-color: rgba(158, 158, 158, 0.1);
-}
-.md-typeset .quote > .admonition-title::before,
-.md-typeset :is(.quote)>:is(.admonition-title,summary):before {
-    background-color: rgb(158, 158, 158);
-}
-
-.md-typeset .admonition.example,
-.md-typeset :is(.admonition,details):is(.example) {
-    border-color: rgba(124, 77, 255, 0.1);
-}
-.md-typeset .example > .admonition-title,
-.md-typeset :is(.example)>:is(.admonition-title,summary) {
-    background-color: rgba(124, 77, 255, 0.1);
-}
-.md-typeset .example > .admonition-title::before,
-.md-typeset :is(.example)>:is(.admonition-title,summary):before {
-    background-color: rgb(124, 77, 255);
-}
-
-:root {
-    --md-admonition-icon--plane: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 96c0-35.3 28.7-64 64-64h320c35.3 0 64 28.7 64 64v320c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96z"/></svg>')
-}
-.md-typeset .admonition.plane,
-.md-typeset :is(.admonition,details):is(.plane) {
-    border-color: rgba(0, 0, 0, 0.1);
-}
-.md-typeset .plane > .admonition-title,
-.md-typeset :is(.plane)>:is(.admonition-title,summary) {
-    background-color: rgba(0, 0, 0, 0.1);
-}
-.md-typeset .plane > .admonition-title::before,
-.md-typeset :is(.plane)>:is(.admonition-title,summary):before {
-    background-color: rgb(0, 0, 0);
-    -webkit-mask-image: var(--md-admonition-icon--plane);
-    mask-image: var(--md-admonition-icon--plane);
-}
-
-:root {
-    --md-admonition-icon--list: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M40 48c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zm152 16c-17.7 0-32 14.3-32 32s14.3 32 32 32h288c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32h288c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32h288c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zm24 136c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24v-48c0-13.3-10.7-24-24-24H40z"/></svg>')
-}
-.md-typeset .admonition.list,
-.md-typeset :is(.admonition,details):is(.list) {
-    border-color: rgba(247, 211, 24, 0.1);
-}
-.md-typeset .list > .admonition-title,
-.md-typeset :is(.list)>:is(.admonition-title,summary) {
-    background-color: rgba(247, 211, 24, 0.1);
-}
-.md-typeset .list > .admonition-title::before,
-.md-typeset :is(.list)>:is(.admonition-title,summary):before {
-    background-color: rgb(247, 221, 24);
-    -webkit-mask-image: var(--md-admonition-icon--list);
-    mask-image: var(--md-admonition-icon--list);
-}
-
-:root {
-    --md-admonition-icon--definition: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M64 32v448c0 17.7-14.3 32-32 32S0 497.7 0 480V32C0 14.3 14.3 0 32 0s32 14.3 32 32zm40.8 302.8c-3 .9-6 1.7-8.8 2.6V13.5C121.5 6.4 153 0 184 0c36.5 0 68.3 9.1 95.6 16.9l1.3.4C309.4 25.4 333.3 32 360 32c26.8 0 52.9-6.8 73-14.1 9.9-3.6 17.9-7.2 23.4-9.8 2.7-1.3 4.8-2.4 6.2-3.1.7-.4 1.1-.6 1.4-.8l.2-.1c9.9-5.6 22.1-5.6 31.9.2S512 20.6 512 32v256c0 12.1-6.8 23.2-17.7 28.6L480 288l14.3 28.6h-.1l-.2.1-.7.4c-.6.3-1.5.7-2.5 1.2-2.2 1-5.2 2.4-9 4-7.7 3.3-18.5 7.6-31.5 11.9-25.8 8.7-61.5 17.8-98.3 17.8-37 0-65.2-9.4-89-17.3l-1-.3c-24-8-43.7-14.4-70-14.4-27.5 0-60.1 7-87.2 14.8z"/></svg>')
-}
-.md-typeset .admonition.definition,
-.md-typeset :is(.admonition,details):is(.definition) {
-    border-color: rgba(255, 171, 0, 0.1);
-}
-.md-typeset .definition > .admonition-title,
-.md-typeset :is(.definition)>:is(.admonition-title,summary) {
-    background-color: rgba(255, 171, 0, 0.1);
-}
-.md-typeset .definition > .admonition-title::before,
-.md-typeset :is(.definition)>:is(.admonition-title,summary):before {
-    background-color: rgb(247, 195, 24);
-    -webkit-mask-image: var(--md-admonition-icon--definition);
-    mask-image: var(--md-admonition-icon--definition);
-}
-
-:root {
-    --md-admonition-icon--theorem: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M177.9 494.1c-18.7 18.7-49.1 18.7-67.9 0l-92.1-92.2c-18.7-18.7-18.7-49.1 0-67.9l50.7-50.7 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48 41.4-41.4 48 48c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-48-48L333.9 18C352.6-.7 383-.7 401.8 18l92.1 92.1c18.7 18.7 18.7 49.1 0 67.9l-316 316.1z"/></svg>')
-}
-.md-typeset .admonition.theorem,
-.md-typeset :is(.admonition,details):is(.theorem) {
-    border-color: rgba(140, 242, 255, 0.1);
-}
-.md-typeset .theorem > .admonition-title,
-.md-typeset :is(.theorem)>:is(.admonition-title,summary) {
-    background-color: rgba(140, 242, 255, 0.1);
-}
-.md-typeset .theorem > .admonition-title::before,
-.md-typeset :is(.theorem)>:is(.admonition-title,summary):before {
-    background-color: rgb(22, 138, 247);
-    -webkit-mask-image: var(--md-admonition-icon--theorem);
-    mask-image: var(--md-admonition-icon--theorem);
-}
-
-:root {
-    --md-admonition-icon--proof: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="m220.6 130.3-67.2 28.2V43.2L98.7 233.5l54.7-24.2v130.3l67.2-209.3zm-83.2-96.7-1.3 4.7-15.2 52.9C80.6 106.7 52 145.8 52 191.5c0 52.3 34.3 95.9 83.4 105.5v53.6C57.5 340.1 0 272.4 0 191.6c0-80.5 59.8-147.2 137.4-158zm311.4 447.2c-11.2 11.2-23.1 12.3-28.6 10.5-5.4-1.8-27.1-19.9-60.4-44.4-33.3-24.6-33.6-35.7-43-56.7-9.4-20.9-30.4-42.6-57.5-52.4l-9.7-14.7c-24.7 16.9-53 26.9-81.3 28.7l2.1-6.6 15.9-49.5c46.5-11.9 80.9-54 80.9-104.2 0-54.5-38.4-102.1-96-107.1V32.3C254.4 37.4 320 106.8 320 191.6c0 33.6-11.2 64.7-29 90.4l14.6 9.6c9.8 27.1 31.5 48 52.4 57.4s32.2 9.7 56.8 43c24.6 33.2 42.7 54.9 44.5 60.3s.7 17.3-10.5 28.5zm-9.9-17.9c0-4.4-3.6-8-8-8s-8 3.6-8 8 3.6 8 8 8 8-3.6 8-8z"/></svg>')
-}
-.md-typeset .admonition.proof,
-.md-typeset :is(.admonition,details):is(.proof) {
-    border-color: rgba(22, 73, 225, 0.1);
-}
-.md-typeset .proof > .admonition-title,
-.md-typeset :is(.proof)>:is(.admonition-title,summary) {
-    background-color: rgba(22, 73, 225, 0.1);
-}
-.md-typeset .proof > .admonition-title::before,
-.md-typeset :is(.proof)>:is(.admonition-title,summary):before {
-    background-color: rgb(35, 69, 217);
-    -webkit-mask-image: var(--md-admonition-icon--proof);
-    mask-image: var(--md-admonition-icon--proof);
-}
-
-:root {
-    --md-admonition-icon--code: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3l89.3 89.4-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>')
-}
-.md-typeset .admonition.code,
-.md-typeset :is(.admonition,details):is(.code) {
-    border-color: rgba(182, 194, 233, 0.1);
-}
-.md-typeset .code > .admonition-title,
-.md-typeset :is(.code)>:is(.admonition-title,summary) {
-    background-color: rgba(182, 194, 233, 0.1);
-}
-.md-typeset .code > .admonition-title::before,
-.md-typeset :is(.code)>:is(.admonition-title,summary):before {
-    background-color: rgb(182, 194, 233);
-    -webkit-mask-image: var(--md-admonition-icon--code);
-    mask-image: var(--md-admonition-icon--code);
-}
-
-
-:root {
-    --md-admonition-icon--asmop: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>')
-    
-}
-.md-typeset .admonition.asmop,
-.md-typeset :is(.admonition,details):is(.asmop) {
-    border-color: rgba(219, 97, 105, 0.1);
-}
-.md-typeset .asmop > .admonition-title,
-.md-typeset :is(.asmop)>:is(.admonition-title,summary) {
-    background-color: rgba(219, 97, 105, 0.1);
-}
-.md-typeset .asmop > .admonition-title::before,
-.md-typeset :is(.asmop)>:is(.admonition-title,summary):before {
-    background-color: rgb(219, 97, 105);
-    -webkit-mask-image: var(--md-admonition-icon--asmop);
-    mask-image: var(--md-admonition-icon--asmop);
 }

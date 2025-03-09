@@ -26,11 +26,15 @@ theme:
       toggle:
         icon: material/toggle-switch
         name: 切换至夜间模式
+      primary: "#448aff"
+      accent: "#448aff"
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/toggle-switch-off-outline
         name: 切换至日间模式
+      primary: "#448aff"
+      accent: "#448aff"
   font:
     text: LXGW WenKai Screen GB Screen
     code: JetBrains Mono
@@ -52,7 +56,7 @@ theme:
 extra:
   generator: true
   social:
-    - icon: fontawesome/brands/weixin
+    - icon: fontawesome/brands/weixin # 图标 : https://fontawesome.com
       link: /files/wechat.png
       name: 微信公众号
     - icon: fontawesome/brands/qq 
@@ -64,7 +68,7 @@ extra:
     - icon: fontawesome/brands/telegram
       link: https://t.me/wanghx2025
       name: Telegram
-    - icon: fontawesome/brands/x-twitter # 图标 : https://fontawesome.com
+    - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/wanghx01
       name: X
     - icon: fontawesome/solid/paper-plane
@@ -159,7 +163,24 @@ nav:
     - blog/index.md
   - 笔记 Note: 
     - note/index.md
-    - Markdown 学习笔记: note/Markdown Extensions.md
-    - LaTeX 学习笔记: note/LaTeX学习笔记.md
-    - C# 学习笔记: note/C#学习笔记.md
-  - 2024-2025 春夏课程笔记: https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda
+    - 数字逻辑设计:
+      - note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数字逻辑设计 19b9c6b6155b806c8644e4a55f0b8dfb/index.md
+      - "Chapter 1: Digital Systems and Information": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数字逻辑设计 19b9c6b6155b806c8644e4a55f0b8dfb/Chapter 1 Digital Systems and Information 1a09c6b6155b80969c86c056c2730452.md
+      - "Chapter 2: Combinational Logic Circuits": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数字逻辑设计 19b9c6b6155b806c8644e4a55f0b8dfb/Chapter 2 Combinational Logic Circuits 1a99c6b6155b803c9ed5de06190f10f3.md
+    - 计算机体系结构:
+      - note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/计算机体系结构 19b9c6b6155b8024a072ca3bd97e46c8/index.md
+      - "Chapter 1: Fundamentals of Computer Design": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/计算机体系结构 19b9c6b6155b8024a072ca3bd97e46c8/Chapter 1 Fundamentals of Computer Design 1a09c6b6155b807ab658ed3347e6259c.md
+      - "Chapter 2: Memory Hierarchy Design": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/计算机体系结构 19b9c6b6155b8024a072ca3bd97e46c8/Chapter 2 Memory Hierarchy Design 1ad9c6b6155b807ead52ef8e7130e175.md
+    - 数据库系统:
+      - note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数据库系统 19b9c6b6155b80d695c5ec0cf8168783/index.md
+      - "Chapter 1: Introduction": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数据库系统 19b9c6b6155b80d695c5ec0cf8168783/Chapter 1 Introduction 19d9c6b6155b803eb5f7c2fd986d31a6.md
+      - "Chapter 2: Relational Model": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数据库系统 19b9c6b6155b80d695c5ec0cf8168783/Chapter 2 Relational Model 19d9c6b6155b80bcae35c2f428878643.md
+      - "Chapter 3: SQL": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数据库系统 19b9c6b6155b80d695c5ec0cf8168783/Chapter 3 SQL 1a99c6b6155b80828260f17b18776fc1.md
+    - 面向对象程序设计:
+      - note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/面向对象程序设计 19b9c6b6155b80459f10d6623d7c42e7/index.md
+      - "Lect 1-2: Introduction": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/面向对象程序设计 19b9c6b6155b80459f10d6623d7c42e7/Lect 1-2 Introduction 19d9c6b6155b8052bcc5cf56692c2e73.md
+      - "Lect 3: STL": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/面向对象程序设计 19b9c6b6155b80459f10d6623d7c42e7/Lect 3 STL 1ae9c6b6155b80fcaac6c171fbde1937.md
+    - 离散数学:
+      - note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/离散数学 19b9c6b6155b80108585d9246eeefe70/index.md
+      - "Chapter 1: The Foundations—Logic and Proofs": note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/离散数学 19b9c6b6155b80108585d9246eeefe70/Chapter 1 The Foundations—Logic and Proofs 1a89c6b6155b8069b7a1d05e7af8f2ed.md
+
