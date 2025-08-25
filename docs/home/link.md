@@ -13,7 +13,7 @@ comments: true
         </div>
         <a href="https://zzw4257.cn/" title="" target="_blank">
             <div class="flink-item-name">ZZW4257</div>
-            <div class="flink-item-desc">欢迎访问我的舍友周子为同学的博客！</div>
+            <div class="flink-item-desc">欢迎访问我的室友周子为同学的博客！</div>
         </a>
     </div>
 
@@ -21,9 +21,9 @@ comments: true
         <div class="flink-item-icon">
           <img src="/files/example.jpg"/>
         </div>
-        <a href="https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda" title="" target="_blank">
-            <div class="flink-item-name">24-25 春夏学期课程笔记</div>
-            <div class="flink-item-desc">实时更新的 Notion 站点。</div>
+        <a href="https://classnote.haoxiong.wang" title="" target="_blank">
+            <div class="flink-item-name">课程笔记</div>
+            <div class="flink-item-desc">实时更新的 Notion 站点，自 24-25 春夏学期开始更新。</div>
         </a>
     </div>
 </div>

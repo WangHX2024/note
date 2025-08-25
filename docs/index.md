@@ -16,7 +16,7 @@ title: 主页
 
     ---
 
-    2024-2025 春夏课程笔记正在实时更新中~ 请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
+    课程笔记正在实时更新中~ 请移步 [Notion](https://classnote.haoxiong.wang) 查看详情~
 
 
 </div>
@@ -42,7 +42,14 @@ title: 主页
 -   :fontawesome-solid-user-tag:{ .lg .middle } __关于我__
 
     ---
-    王浩雄同学来自河北秦皇岛市，现就读于浙江大学竺可桢学院混合2303班，主修专业为计算机科学与技术。
+    
+    - 王浩雄同学来自**河北秦皇岛市**，现为浙江大学竺可桢学院混合班2023级本科生，主修专业为**计算机科学与技术**。
+
+    - 电话：+86-15703396384
+
+    - 邮箱：wanghaoxiong@zju.edu.cn
+
+    - 地址：浙江省杭州市西湖区浙大路38号 310000
 
 
 
@@ -52,11 +59,12 @@ title: 主页
 
 
    <body>
-        <font color="#B9B9B9">
-        <p style="text-align: center; ">
-                <span>本站已经运行</span>
-                <span id='box1'></span>
-    </p>
+      <font color="#B9B9B9">
+      <p style="text-align: center; ">
+              <span>本站已经运行</span>
+              <span id='box1'></span>
+              <span>最后更新：2025/8/25</span>
+      </p>
       <div id="box1"></div>
       <script>
         function timingTime(){

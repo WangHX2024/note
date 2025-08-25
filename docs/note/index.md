@@ -8,7 +8,7 @@
 
     笔记正在努力编写中~
     
-    2024-2025 春夏课程笔记正在实时更新中，请移步 [Notion](https://wanghx2025.notion.site/19d9c6b6155b80e2bfcad2e0753bfbda) 查看详情~
+    课程笔记正在实时更新中，请移步 [Notion](https://classnote.haoxiong.wang) 查看详情~
 
 </div>
 
