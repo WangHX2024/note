@@ -2,9 +2,9 @@
 date: 
     created: 2024-07-31
 authors: [wanghx]
-draft: false   # 文章是否为草稿
-counter: false # 页面上方是否显示字数统计和阅读时间估计（bolg文章不要开启，会导致排版混乱）
-comments: true # 页面下方是否显示评论区
+draft: false
+counter: false
+comments: false
 ---
 
 # LaTeX 学习笔记

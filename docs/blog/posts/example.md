@@ -10,8 +10,8 @@ tags:
     - 示例标签1
     - 示例标签2
 draft: false   # 文章是否为草稿
-counter: false # 页面上方是否显示字数统计和阅读时间估计（bolg文章不要开启，会导致排版混乱）
-comments: true # 页面下方是否显示评论区
+counter: false # 页面上方是否显示字数统计和阅读时间估计（blog文章不要开启，会导致排版混乱）
+comments: false # 页面下方是否显示评论区
 ---
 # 博客示例文章
 
@@ -31,6 +31,15 @@ comments: true # 页面下方是否显示评论区
 
 
 这是PDF格式附件，可以点击下方按钮下载。
+
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="/files/pdf.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">Example File</div>
+<div class="file-meta">1.0 MB / 1 Page / 2025-09-02</div>
+</div>
+<a class="down-button" target="_blank" href="/files/example.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
 
 <embed src="/files/example.pdf" width="600" height="500" type="application/pdf">
 

@@ -5,10 +5,8 @@
 -   :fontawesome-solid-code:{ .lg .middle } __Abstract__
 
     ---
-
-    笔记正在努力编写中~
     
-    课程笔记正在实时更新中，请移步 [Notion](https://classnote.haoxiong.wang) 查看详情~
+    24-25春夏学期课程笔记已同步到本站。25-26秋冬课程笔记正在实时更新中~ 请移步 [Notion](https://classnote.haoxiong.wang) 查看详情~
 
 </div>
 
@@ -18,15 +16,15 @@
 
     ---
 
-    - [x] [数字逻辑设计](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数字逻辑设计 19b9c6b6155b806c8644e4a55f0b8dfb)
+    - [x] [数字逻辑设计](dld)
 
-    - [ ] [计算机体系结构](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/计算机体系结构 19b9c6b6155b8024a072ca3bd97e46c8)
+    - [x] [计算机体系结构](ca)
 
-    - [ ] [数据库系统](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/数据库系统 19b9c6b6155b80d695c5ec0cf8168783)
+    - [x] [数据库系统](db)
 
-    - [ ] [面向对象程序设计](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/面向对象程序设计 19b9c6b6155b80459f10d6623d7c42e7)
+    - [x] [面向对象程序设计](oop)
 
-    - [ ] [离散数学](/note/2024-2025 春夏课程笔记 19d9c6b6155b80e2bfcad2e0753bfbda/离散数学 19b9c6b6155b80108585d9246eeefe70)
+    - [x] [离散数学](dm)
 
 
 </div>

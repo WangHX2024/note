@@ -1,0 +1,596 @@
+# Chapter 3: SQL
+
+## 一、简介
+
+1. **SQL 的组成部分**
+    - 数据定义语言 Data Definition Language
+        - `CREATE / ALTER / DROP table`
+        - `CREATE / DROP index`
+        - `CREATE / DROP view`
+        - `CREATE / DROP trigger`
+    - 数据操作语言 Data Manipulation Language
+        - `SELECT … FROM …`
+        - `INSERT`
+        - `DELETE`
+        - `UPDATE`
+    - 数据控制语言 Data Control Language
+        - `GRANT`
+        - `REVOKE`
+2. **注意细节**
+    - SQL 的 name 对大小写不敏感
+    - SQL 的 name 不允许出现 `-` 连字符
+
+## 二、数据定义语言
+
+### 1. 域的类别 Domain Types
+
+- `char(n)` ：固定长度为 n 的字符串
+- `varchar(n)` ：可变长度的字符串，最大长度为 n
+- `int` ：整数，支持范围取决于机器
+- `smallint` ：短整数，支持范围取决于机器
+- `numeric(p,d)` ：十进制定点数，共 p 位，其中小数点右侧 d 位
+- `real` 、 `double precision` ：浮点数和双精度浮点数，精度取决于机器
+- `float(n)` ：浮点数，至少 n 位
+- `date` ：日期，格式 `YYYY-MM-DD`
+- `Time` ：时间，格式 `HH:MM:SS` 或 `HH:MM:SS.MS`
+- `timestamp` ：时间戳，格式 `YYYY-MM-DD HH:MM:SS.MS`
+
+### 2. 创建、删除和更改表
+
+1. **创建表**
+    - 指定表名
+    - 指定属性的名、类型和完整性约束（integrity constraint）
+    - 指定主键： `primary key(key-name)`
+    - 指定检查条件： `check(expression)`
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ```sql
+        > CREATE TABLE branch        
+        > (
+        > 	branch_name char(20) not null,          
+        > 	branch_city char(30),          
+        > 	assets integer,          
+        > 	primary key (branch_name),          
+        > 	check (assets >= 0)
+        > ); 
+        > ```
+        > 
+
+2. **删除表**
+    - 格式： `DROP TABLE table-name`
+3. **修改表**
+    - 新增属性： `ALTER TABLE table-name **ADD (attribute-name-1 type-1, … , *attribute-name-n* type-n)` ；对于表内已有的元组，新增属性对应的值为 NULL
+    - 删除属性： `ALTER TABLE table-name DROP attribute-name`
+    - 修改属性类型： `ALTER TABLE table-name MODIFY (attribute-name-1 new-type-1, ... , attribute-name-n new-type-n)`
+
+### 3. 创建和删除索引
+
+1. **INDEX 和 UNIQUE INDEX**
+    - INDEX：允许被索引的数据列包含重复的值
+    - UNIQUE INDEX：不允许被索引的数据列包含重复的值
+2. **创建索引**
+    - 格式： `CREATE INDEX index-name ON table-name(attribute-name-1, ... ,attribute-name-n)`
+    - 格式： `CREATE UNIQUE INDEX index-name ON table-name(attribute-name-1, ... ,attribute-name-n)`
+3. **删除索引**
+    - 格式： `DROP INDEX index-name`
+
+### 4. 创建、删除和使用视图
+
+1. **创建视图**
+    - 格式：
+        
+        ```sql
+        CREATE VIEW view-name AS
+        	SELECT ... FROM ...
+        ```
+        
+2. **删除视图**
+    - 格式： `DROP VIEW view-name`
+
+!!! example
+    > **示例：**
+    > 
+    > - 视图的创建
+    >     
+    >     ![image.png](image.png)
+    >     
+    > - 视图的使用
+    >     
+    >     ![image.png](image%201.png)
+    >     
+
+## 三、基本查询语句
+
+### 1. SELECT … FROM … WHERE …
+
+1. **`SELECT` 谓词**
+    - 支持使用通配符查询所有属性：`SELECT * FROM table-name`
+    - 支持简单的数字运算（+、-、*、/）： `SELECT amount * 100 FROM table-name`
+    - 解决重复
+        - 在查询中，默认支持重复元组的输出
+        - 若要对输出进行去重，需加关键词 `distinct`
+        - 若不对输出进行去重，可加关键词 `all` ；但这是默认的关键词，因此不必加
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > Find the names of all branches in the *loan* relations, and remove duplicates   
+        > 
+        > **解：** `SELECT distinct branch-name FROM loan`
+        > 
+
+2. **`WHERE` 谓词**
+    - 每个条件表达式之间使用 `AND`、 `OR` 连接
+    - 可用 `NOT` 进行取反
+    - 可用 `BETWEEN … AND …` 表示范围
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ![image.png](image%202.png)
+        > 
+
+3. **`FROM` 谓词**
+    - FROM 谓词后接的表名若超过一个，则为这些表作 **笛卡尔乘积**
+    - FROM 谓词后接的表名若超过一个，且不同的表中有同名属性，则在访问这些属性时，需指明表名
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ![image.png](image%203.png)
+        > 
+
+### 2. Rename
+
+1. **对列重命名**
+    - 在 `SELECT` 谓词中进行，目的是在输出显示时更加直观
+    - 实现方式
+        - `old-name AS new-name`
+        - `new-name = old-name` （SQL Server）
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ```sql
+        > SELECT borrower.loan_number as loan_id, amount
+        > FROM borrower, loan
+        > WHERE borrower.loan_number = loan.loan_number 
+        > ```
+        > 
+
+2. **对表（元组变量）重命名**
+    - 在 `FROM` 谓词中进行，目的是简化表达式或在同一张表内进行比较操作时解决名称冲突
+    
+    !!! example
+        > **示例：**Find the names of all branches that have greater assets than some branch located in city Brooklyn.
+        > 
+        > 
+        > ```sql
+        > SELECT distinct T.branch_name
+        > FROM branch as T, branch as S
+        > WHERE T.assets > S.assets and S.branch_city = 'Brooklyn' 
+        > ```
+        > 
+
+### 3. 字符串匹配
+
+1. **通配符**
+    - `%` 匹配任何子字符串
+    - `_` 匹配任何单个字符
+2. **匹配方法**
+    - 关键词： `LIKE`
+    - 支持逃逸字符
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ![image.png](image%204.png)
+        > 
+
+3. **SQL 支持的字符串操作**
+    - `||` 用于连接字符串
+    - `upper()` 和 `lower()` 用于转化大小写
+    - 获取字符串长度，提取子字符串 …
+
+### 4. 为输出排序
+
+1. 关键词： `ORDER BY`
+2. 递增 `asc` ，递减 `desc` ，其中递增为默认值
+3. 可以指定多个属性进行排序，优先级从第一个属性向后依次递减
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ```sql
+        > SELECT * FROM customer 
+        > ORDER BY customer_city, customer_street desc, customer_name 
+        > ```
+        > 
+
+### 5. 集合操作
+
+1. 关键词： `UNION` （并）、 `INTERSECT` （交）、 `EXCEPT` （差）
+2. 若使用上述关键词，则会自动消去重复项
+3. 若需保留重复项，应使用关键词： `UNION ALL` 、 `INTERSECT ALL` 、 `EXCEPT ALL`
+    
+    ![image.png](image%205.png)
+    
+    !!! example
+        > **示例：**Find all customers who have a loan or an account or both.
+        > 
+        > 
+        > ```sql
+        > (SELECT customer_name FROM depositor)
+        > UNION (SELECT customer_name FROM borrower) 
+        > ```
+        > 
+
+### 6. 使用聚合函数
+
+1. **聚合函数的种类：**avg、min、max、sum、count（计数）
+2. **格式 1：直接使用**
+    
+    !!! example
+        > **示例：**Find the average account balance at the Perryridge branch.
+        > 
+        > 
+        > ![image.png](image%206.png)
+        > 
+
+3. **格式 2：分组聚类**
+    - 关键词： `GROUP BY`
+    - 被作为分组依据的属性必须出现在 `SELECT` 语句的查询对象中
+    
+    !!! example
+        > **示例：**Find the average account balance for each branch.
+        > 
+        > 
+        > ![image.png](image%207.png)
+        > 
+
+4. **解决重复**
+    - 聚合函数默认不解决重复，若需要解决重复，需使用关键词 `DISTINCT`
+    - 在 `count` 等函数中，需要尤为关注这一点
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ![image.png](image%208.png)
+        > 
+
+5. **解决 `NULL`**
+    - 若某一元组使用聚合函数的属性为 `NULL` ，则聚合函数会忽略这一元组，但 `count` 函数除外
+6. **`HAVING` 谓词**
+    - 由于执行顺序的差异， `WHERE` 谓词内不可以使用聚合函数。若希望使用聚合函数对输出值进行筛选，则需要使用 `HAVING` 谓词
+    
+    !!! example
+        > **示例：**Find the names of all branches located in city Brooklyn where the average account balance is more than $1,200.
+        > 
+        > 
+        > ![image.png](image%209.png)
+        > 
+
+### 7. 处理 NULL
+
+1. 任何包含 `NULL` 的代数表达式都返回 `NULL`
+    
+    !!! example
+        > **示例：**5 + NULL 返回 NULL
+        > 
+
+2. 任何包含 `NULL` 的比较式都返回 `UNKNOWN`
+    
+    !!! example
+        > **示例：**5 < NULL 返回 UNKNOWN
+        > 
+
+3. 在逻辑表达式中， `UNKNOWN` 遵循以下规则：
+    - OR：
+        - (unknown or true) = true
+        - (unknown or false) = unknown
+        - (unknown or unknown) = unknown
+    - AND：
+        - (true and unknown) = unknown
+        - (false and unknown) = false
+        - (unknown and unknown) = unknown
+    - NOT：(not unknown) = unknown
+
+4. 在 `WHERE` 谓词的运算结果中， `UNKNOWN` 被视作 `False`
+5. 在 `WHERE` 谓词中，若判断某项是否为 `NULL` ，应使用 `is null` 、 `is not null` 
+    
+    !!! example
+        > **示例：**
+        > 
+        > 
+        > ![image.png](image%2010.png)
+        > 
+
+### 8. 总结
+
+1. `SELECT` 语句的通用格式
+    
+    ```sql
+    SELECT <[DISTINCT] c1, c2, …> 
+    FROM <r1, …> 
+    [WHERE <condition>] 
+    [GROUP BY <c1, c2, …> [HAVING <cond2>]] 
+    [ORDER BY <c1 [DESC] [, c2 [DESC|ASC], …]>] 
+    ```
+    
+2. `SELECT` 语句的执行顺序
+    
+    ![image.png](image%2011.png)
+    
+
+## 四、嵌套子查询 Nested Subqueries
+
+### 1. 派生关系 Derived Relations
+
+1. 派生关系（Derived Relations）的生存范围只局限于所处的 SQL 语句中
+2. **`WITH` 谓词**
+    - 语法： `WITH local-view-name(attribute-name-1, ...) as ...`
+    - 用于定义局部视图（Local View）
+    
+    !!! example
+        > **示例：**Find all branches where the total account deposit is greater than the average of the total account deposits at all branches.
+        > 
+        > 
+        > ![image.png](image%2012.png)
+        > 
+
+3. 不管是否被引用，导出表（或称嵌套表）必须给出别名
+
+### 2. 常用关键词
+
+1. `in` 、 `not in`
+2. `some` 、 `all`
+    - `some` 的定义：
+        
+        ![image.png](image%2013.png)
+        
+    - `all` 的定义：
+        
+        ![image.png](image%2014.png)
+        
+3. `exists` 、 `not exists`
+    - 用于测试关系是否非空
+    
+    ![image.png](image%2015.png)
+    
+4. `unique` 、 `not unique`
+    - 用于测试符合条件的元组是否有多个
+
+!!! example
+    > **示例：**Find the student names who have enrolled more than 10 courses.
+    > 
+    > 
+    > **实现 1：（关键词 `in`、 `not in`）**
+    > 
+    > ![image.png](image%2016.png)
+    > 
+    > **实现 2：（为导出表给出别名 `TT` ）**
+    > 
+    > ![image.png](image%2017.png)
+    > 
+
+!!! example
+    > **示例：**Find all customers who have both an account and a loan at the Perryridge branch.
+    > 
+    > 
+    > **实现 1：（关键词 `in`、 `not in`）**
+    > 
+    > ![image.png](image%2018.png)
+    > 
+    > **实现 2：（注意表 `t` 的生存周期）**
+    > 
+    > ![image.png](image%2019.png)
+    > 
+
+!!! example
+    > **示例：**Find all branches that have greater assets than some branch located in Brooklyn.
+    > 
+    > 
+    > **正例：（自我比较）**
+    > 
+    > ![image.png](image%2020.png)
+    > 
+    > **反例：（存在两个同名表，没有指定别名，从而造成混淆）**
+    > 
+    > ![image.png](image%2021.png)
+    > 
+
+!!! example
+    > **示例：**Find the names of all branches that have greater assets than all branches located in Brooklyn.
+    > 
+    > 
+    > **实现：（`all` 关键词）**
+    > 
+    > ![image.png](image%2022.png)
+    > 
+
+!!! example
+    > **示例：**Find all customers who have at least two accounts at the Perryridge branch.
+    > 
+    > 
+    > **实现：（ `unique` 关键词）**
+    > 
+    > ![image.png](image%2023.png)
+    > 
+
+
+> **示例：**找出具有最高平均分数的课程名称
+> 
+> 
+> ![image.png](image%2024.png)
+> 
+> ![image.png](image%2025.png)
+> 
+
+## 五、对数据库的修改
+
+### 1. 删除记录
+
+- 格式： `DELETE FROM table/view-name WHERE condition`
+- 每次只能删除一张表内的记录
+- 对于嵌套的指令，内层指令完成后才开始执行外层指令（见下方示例 2）
+
+> **示例：**
+> 
+> 
+> ```sql
+> DELETE FROM account
+> WHERE branch_name in (SELECT branch_name
+> 											FROM branch
+> 											WHERE branch_city = ‘Needham’) 
+> ```
+> 
+
+
+> **示例：**
+> 
+> 
+> ![image.png](image%2026.png)
+> 
+> **问题：**这样删除，是否会导致 balance 的平均值在删除过程中发生变化，从而导致错误？
+> 
+> **答：**不会，SQL 先计算 `avg(balance)` 并找到所有待删的记录后，再统一执行删除
+> 
+
+### 2. 插入记录
+
+- **格式 1：由给定值插入记录**
+    
+    ```sql
+    INSERT INTO table/view-name [(c1, c2,…)] 
+    VALUES (e1, e2, …) 
+    ```
+    
+- **格式 2：由查询结果插入记录**
+    
+    ```sql
+    INSERT INTO <table|view> [(c1, c2,…)] 
+          SELECT e1, e2, … 
+          FROM … 
+    ```
+    
+
+> **示例：**
+> 
+> 
+> ![image.png](image%2027.png)
+> 
+
+
+> **示例：**
+> 
+> 
+> ```sql
+> INSERT INTO depositor 
+> 	    SELECT customer_name, A.loan_number 
+> 	    FROM loan A, borrower B 
+> 	    WHERE A.branch_name = ‘Perryridge’ and 
+> 	                    A.loan_number = B.loan_number 
+> ```
+> 
+
+### 3. 更新记录
+
+1. **一般的记录更新**
+    
+    ```sql
+    UPDATE table/view-name
+    SET c1 = e1 , c2 = e2, … [WHERE <condition>] 
+    ```
+    
+    > **示例：**当有多条更新语句时，注意更新语句的顺序，避免相互影响
+    > 
+    > 
+    > ![image.png](image%2028.png)
+    > 
+
+2. **使用 `case` 语句的记录更新**
+    - 语法： `when <condition> then <do sth...> else <do sth...>`
+    
+    > **示例：**Increase all accounts with balances over $10,000 by 6%, and all other accounts receive 5%.
+    > 
+    > 
+    > ![image.png](image%2029.png)
+    > 
+
+3. **使用视图进行更新**
+    - 建立在单个基本表上的视图，且视图的列对应表的列，称为**行列视图**
+    - 只有行列视图可以用于更新数据
+
+### 4. 事务 Transactions
+
+1. **概念：**事务是作为单个逻辑单元执行的一系列查询和数据更新语句
+2. **事务的特性：**原子性（atomicity）、一致性（consistence）、隔离性（isolation）、持久性（durability）
+3. **事务终止的条件**
+    - COMMIT WORK：使事务的所有更新在数据库中永久存在
+    - ROLLBACK WORK：撤消事务执行的所有更新（如果事务的任何步骤失败，则事务已完成的所有工作都可以通过 ROLLBACK WORK 撤消）
+
+## 六、连接关系 Joined Relations
+
+### 1. 基本概念
+
+![image.png](image%2030.png)
+
+1. **内连接（Inner Join）**
+    - 只输出完全满足连接条件的元组
+2. **外连接（Outer Join）**
+    - 和内连接不同的是，外连接考虑不能满足连接条件的元组，因此会输出至少一个表中的所有行
+    - 分为左外连接（Left Outer Join）、右外连接（Right Outer Join）和全外连接（Full Outer Join）
+3. **自然连接（Natural Join）**
+    - 自然连接既可以是内连接，又可以是外连接
+    - 自然连接自动以同名属性相等作为连接条件，不需要再手动指定连接条件
+    - 非自然连接需要使用 `on` 或 `using` 关键词手动指定连接条件，其灵活性比自然连接更高
+    - 非自然连接允许不同名属性的比较
+    - 使用 `on` 的连接，输出时不消去同名属性（将两张表内的同名属性输出为新表的两列）
+    - 使用 `using` 的连接，输出时只消去作为匹配条件的同名属性
+
+> **示例：**
+> 
+> 
+> ![image.png](image%2031.png)
+> 
+> ![image.png](image%2032.png)
+> 
+
+### 2. SQL 实现
+
+1. 基本语法
+
+![image.png](image%2033.png)
+
+1. 关键词 `inner` 和 `outer` 可以省略
+2. 关键词 `on` 后接连接条件判别式
+3. 关键词 `using` 后接两张表内同名的等值连接属性名；使用 `using` 的连接类似于 `natural` 连接，但仅以 `using` 列出的公共属性为连接条件
+
+> **示例：**
+> 
+> 
+> ```sql
+> Select * from loan natural join borrower
+> Select * from loan natural right join borrower
+> Select * from loan join borrower on loan.loan_number = borrower.loan_number
+> Select * from loan left join borrower on loan.loan_number =  borrower.loan_number
+> Select * from loan full join borrower using (loan_number)
+> ```
+> 
+
+
+> **示例：**Find all customers who have either an account or a loan (but not both) at the bank.
+> 
+> 
+> ![image.png](image%2034.png)
+>

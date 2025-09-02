@@ -9,7 +9,7 @@ comments: true
 
     <div class="flink-list-item">
         <div class="flink-item-icon">
-          <img src="https://zzw4257.cn/_astro/demo-avatar.Dw-aIvea_Z1xvGVL.webp"/>
+          <img src="/files/zzw_avatar.webp"/>
         </div>
         <a href="https://zzw4257.cn/" title="" target="_blank">
             <div class="flink-item-name">ZZW4257</div>
