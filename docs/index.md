@@ -42,7 +42,9 @@ title: 主页
 -   :fontawesome-solid-user-tag:{ .lg .middle } __关于我__
 
     ---
-    
+
+    - [:octicons-arrow-right-24: 我的个人名片](https://haoxiong.wang)
+
     - 王浩雄同学来自**河北秦皇岛市**，现为浙江大学竺可桢学院混合班2023级本科生，主修专业为**计算机科学与技术**。
 
     - 电话：+86-15703396384
@@ -50,6 +52,7 @@ title: 主页
     - 邮箱：[wanghaoxiong@zju.edu.cn](mailto:<wanghaoxiong@zju.edu.cn>)
 
     - 地址：浙江省杭州市西湖区浙大路38号 310000
+
 
 
 
