@@ -43,9 +43,10 @@ title: 主页
 
     ---
 
-    - [:octicons-arrow-right-24: 我的个人名片](https://haoxiong.wang)
 
     - 王浩雄同学来自**河北秦皇岛市**，现为浙江大学竺可桢学院混合班2023级本科生，主修专业为**计算机科学与技术**。
+
+        [:octicons-arrow-right-24: 我的个人名片](https://haoxiong.wang)
 
     - 电话：+86-15703396384
 
