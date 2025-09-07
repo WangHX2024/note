@@ -193,7 +193,7 @@ nav:
       - "Chapter 11: Transactions": note/db/chap11/chap11.md
       - "Chapter 12: Concurrency Control": note/db/chap12/chap12.md
       - "Chapter 13: Recovery System": note/db/chap13/chap13.md
-      - "资料下载：实验报告": note/db/file_download.md
+      - "资料下载：实验报告与 A4 Cheatpaper": note/db/file_download.md
     - 面向对象程序设计:
       - note/oop/index.md
       - "Chapter 1-2: Introduction": note/oop/chap1/chap1.md

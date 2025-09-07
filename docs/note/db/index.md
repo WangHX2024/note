@@ -60,7 +60,7 @@
 
     ---
 
-    - [x] [资料下载：实验报告](file_download.md)
+    - [x] [资料下载：实验报告与 A4 Cheatpaper](file_download.md)
 
 
 </div>

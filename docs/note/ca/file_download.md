@@ -67,7 +67,7 @@
 <div class="file-icon"><img src="/files/pdf.svg" style="height: 3em;"></div>
 <div class="file-body">
 <div class="file-title">A4 Cheatpaper</div>
-<div class="file-meta">2025-09-02</div>
+<div class="file-meta">2025-09-07</div>
 </div>
-<a class="down-button" target="_blank" href="/note/ca/files/cheatpaper.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
+<a class="down-button" target="_blank" href="/note/ca/files/ca_cheatpaper.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>

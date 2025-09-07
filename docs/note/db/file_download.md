@@ -53,3 +53,12 @@
 </div>
 <a class="down-button" target="_blank" href="/note/db/files/minisql.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
 </div>
+
+<div class="card file-block" markdown="1">
+<div class="file-icon"><img src="/files/pdf.svg" style="height: 3em;"></div>
+<div class="file-body">
+<div class="file-title">A4 Cheatpaper</div>
+<div class="file-meta">2025-09-07</div>
+</div>
+<a class="down-button" target="_blank" href="/note/db/files/db_cheatpaper.pdf" markdown="1">:fontawesome-solid-download: 下载</a>
+</div>
