@@ -48,8 +48,6 @@ title: 主页
 
         [:octicons-arrow-right-24: 我的个人名片](https://haoxiong.wang)
 
-    - 电话：+86-15703396384
-
     - 邮箱：[wanghaoxiong@zju.edu.cn](mailto:<wanghaoxiong@zju.edu.cn>)
 
     - 地址：浙江省杭州市西湖区浙大路38号 310000
