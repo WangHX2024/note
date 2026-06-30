@@ -1,0 +1,5524 @@
+<!DOCTYPE html><html lang="zh" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="王浩雄的个人主页">
+      
+      
+      
+        <link rel="canonical" href="https://note.haoxiong.wang/note/se/chap30/chap30/">
+      
+      
+        <link rel="prev" href="../../chap29/chap29/">
+      
+      
+        <link rel="next" href="../../chap31/chap31/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 30: Product Metrics - 王浩雄的个人主页</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=LXGW+WenKai+Screen+GB+Screen:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"LXGW WenKai Screen GB Screen";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../css_js/css.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
+      <link rel="stylesheet" href="https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-PLSZR8E9QE"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-PLSZR8E9QE",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-PLSZR8E9QE",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-30-product-metrics" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="王浩雄的个人主页" class="md-header__button md-logo" aria-label="王浩雄的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            王浩雄的个人主页
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 30: Product Metrics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="关闭自动模式" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="关闭自动模式" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="#448aff" data-md-color-accent="#448aff" aria-label="切换至夜间模式" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="#448aff" data-md-color-accent="#448aff" aria-label="切换至日间模式" type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WangHX2024/note" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    WangHX2024/note
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  主页 Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../blog/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  博客 Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  笔记 Note
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="王浩雄的个人主页" class="md-nav__button md-logo" aria-label="王浩雄的个人主页" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4zM3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7zm2-2v2h2V5zm0 14h2v-2H5zm0-6h2v-2H5z"></path></svg>
+
+    </a>
+    王浩雄的个人主页
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WangHX2024/note" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    WangHX2024/note
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页 Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    主页 Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../home/comment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    留言板
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../home/link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    链接
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../blog/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    博客 Blog
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    博客 Blog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    归档
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    归档
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/archive/2024/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3">
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    分类
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    分类
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../blog/category/%E7%A4%BA%E4%BE%8B%E5%88%86%E7%B1%BB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    示例分类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    笔记 Note
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    笔记 Note
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../dld/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数字逻辑设计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数字逻辑设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: Digital Systems and Information
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/chap2/chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: Combinational Logic Circuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/chap3/chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Combinational Logic Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/chap4/chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Sequential Circuits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/chap5/chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: Hardware Implementation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/chap6/chap6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: Register and Register Transfer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dld/file_download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    资料下载：实验报告
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ca/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机体系结构
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机体系结构
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ca/chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: Fundamentals of Computer Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ca/chap2/chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: Memory Hierarchy Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ca/chap3/chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Instruction-Level Parallelism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ca/file_download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    资料下载：实验报告与 A4 Cheatpaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../db/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数据库系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数据库系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap2/chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: Relational Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap3/chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap4/chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Advanced SQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap5/chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: Entity-Relationship Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap6/chap6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: Relational Database Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap7/chap7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: Storage and File Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap8/chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Indexing and Hashing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap9/chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Query Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap10/chap10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Query Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap11/chap11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: Transactions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap12/chap12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: Concurrency Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/chap13/chap13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: Recovery System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../db/file_download/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    资料下载：实验报告与 A4 Cheatpaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../oop/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    面向对象程序设计
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    面向对象程序设计
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1-2: Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap3/chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: STL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap4/chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Memory Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap5/chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: Class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap6/chap6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: Composition, Inheritance &amp; Polymorphism
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap7/chap7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: Copy Constructor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap8/chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Operator Overloading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap9/chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Streams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap10/chap10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap11/chap11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: Iterators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap12/chap12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: Exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap13/chap13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: Smart Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../oop/chap14/chap14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Miscellaneous Topics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../dm/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散数学
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    离散数学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: The Foundations—Logic and Proofs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap2/chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: Basic Structures Sets, and Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap3/chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: The Fundamentals Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap4/chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Induction and Recursion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap5/chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: Counting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap6/chap6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: Advanced Counting Techniques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap7/chap7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: Relations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/chap8/chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Graphs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked="">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    软件工程
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    软件工程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: The Nature of Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap2/chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: Software Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap3/chap3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3: Software Process Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap4/chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Process Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap6/chap6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: Human Aspects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap7/chap7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: Principles that Guide Practice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap8/chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Understanding Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap9/chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Requirements Modeling: Scenario-Based Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap10/chap10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Requirements Modeling: Class-Based Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap11/chap11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: Requirements Modeling: Behaviour, Patterns, and Web/Mobile Apps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap12/chap12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12: Design Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap13/chap13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: Architectural Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap14/chap14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Component-Level Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap15/chap15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15: User Interface Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap16/chap16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16: Pattern-Based Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap17/chap17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17: WebApp Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap18/chap18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: MobileApp Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap20/chap20/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 20: Review Techniques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap21/chap21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 21: Software Quality Assurance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap22/chap22/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 22: Software Testing Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap23/chap23/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 23: Testing Conventional Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap24/chap24/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 24: Testing Object-Oriented Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap25/chap25/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 25: Testing Web Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap26/chap26/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 26: Testing Mobile Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap27/chap27/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 27: Security Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap28/chap28/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 28: Formal Modeling and Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap29/chap29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 29: Configuration Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Product Metrics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 30: Product Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1 产品度量基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="30.1 产品度量基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3011" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.1 基本概念：测量、度量、指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.2 度量的原则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3013" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.3 优质度量的特征
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3014" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.4 度量的过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3015" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.5 目标导向的度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#302" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2 度量在软件工程中的应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="30.2 度量在软件工程中的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3021-requirement-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.1 需求模型（Requirement Model）度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3022-architectural-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.2 架构设计（Architectural Design）度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3023-oo-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.3 面向对象设计（OO Design）度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3024-class-oriented-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.4 类级度量（Class-Oriented Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3025-operation-oriented-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.5 操作级度量（Operation-Oriented Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3026-component-level-design-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.6 组件级设计度量（Component-Level Design Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3027-interface-design-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.7 界面设计度量（Interface Design Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3028-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.8 Web 与移动应用设计度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3029" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.9 代码度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30210-metrics-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.10 测试度量（Metrics for Testing）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.11 软件维护度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap31/chap31/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 31: Project Management Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap32/chap32/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 32: Process and Project Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../chap36/chap36/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 36: Maintenance and Reengineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../final/final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    期末复习背诵
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_8">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../cp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编译原理
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_8" id="__nav_3_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编译原理
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap1/chap1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1: Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap2/chap2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2: Lexical Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap3-1/chap3-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3-1: Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap3-2/chap3-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3-2: Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap3-3/chap3-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3-3: Parsing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap4/chap4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4: Abstract Syntax
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap5/chap5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5: Semantic Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap6/chap6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6: Activation Records
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap7/chap7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7: Intermediate Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap8/chap8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8: Blocks &amp; Traces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap9/chap9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9: Instruction Selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap10/chap10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10: Liveness Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap11/chap11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11: Register Allocation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap13/chap13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13: Garbage Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap14/chap14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14: Object Oriented Languages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cp/chap18/chap18/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 18: Loop Optimizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#301" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1 产品度量基础
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="30.1 产品度量基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3011" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.1 基本概念：测量、度量、指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.2 度量的原则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3013" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.3 优质度量的特征
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3014" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.4 度量的过程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3015" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.1.5 目标导向的度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#302" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2 度量在软件工程中的应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="30.2 度量在软件工程中的应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3021-requirement-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.1 需求模型（Requirement Model）度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3022-architectural-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.2 架构设计（Architectural Design）度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3023-oo-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.3 面向对象设计（OO Design）度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3024-class-oriented-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.4 类级度量（Class-Oriented Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3025-operation-oriented-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.5 操作级度量（Operation-Oriented Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3026-component-level-design-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.6 组件级设计度量（Component-Level Design Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3027-interface-design-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.7 界面设计度量（Interface Design Metrics）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3028-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.8 Web 与移动应用设计度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3029" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.9 代码度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30210-metrics-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.10 测试度量（Metrics for Testing）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#30211" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        30.2.11 软件维护度量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/WangHX2024/note/blob/master/docs/note/se/chap30/chap30.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/WangHX2024/note/raw/master/docs/note/se/chap30/chap30.md" title="查看本页的源代码" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"></path></svg>
+    </a>
+  
+
+
+<h1 id="chapter-30-product-metrics">Chapter 30: Product Metrics<a class="headerlink" href="#chapter-30-product-metrics" title="Permanent link">¶</a></h1>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../image.png" data-desc-position="bottom"><img alt="image.png" src="../image.png"></a></p>
+<h2 id="301">30.1 产品度量基础<a class="headerlink" href="#301" title="Permanent link">¶</a></h2>
+<h3 id="3011">30.1.1 基本概念：测量、度量、指标<a class="headerlink" href="#3011" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>测量（Measure）</strong><ul>
+<li>定义：提供对产品或过程的某种属性的范围、数量、维度、容量或大小的定量指示。</li>
+<li>解释：对某一属性进行的最基础、最客观的绝对数值记录。</li>
+<li>案例：<ul>
+<li>体检时踩上体重秤，显示“67 公斤”，“172 厘米”。</li>
+<li>抽象语法树（AST）解析器文件有 1500 行代码。</li>
+<li>某个 C++ 类里定义了 15 个方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>度量（Metric）</strong><ul>
+<li>定义：系统、组件或过程具有给定属性的程度的定量测量（IEEE）。</li>
+<li>解释：对两个或多个测量值进行加工、组合，赋予其<strong>比较意义</strong>和<strong>上下文</strong>。</li>
+<li>案例：<ul>
+<li>将你的体重与身高结合，算出 BMI 指数为 22.5。</li>
+<li>将 AST 节点的总数与子类总数结合，算出每个 AST 节点类平均包含 3 个子类。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>指标（Indicator）</strong><ul>
+<li>定义：一种度量或度量组合，用于提供对软件过程、软件项目或产品本身的深入洞察。</li>
+<li>解释：将度量结果与行业基准或历史数据进行对比，用来<strong>预警、提供洞察或指导决策</strong>。</li>
+<li>案例：<ul>
+<li>医生看着你的体检报告说：“你的 BMI 连续三个月上升，超过了健康值，这是一个高血脂风险的指标。”</li>
+<li>当模块的“复杂度”度量持续飙升时，它是一个“指标”，暗示代码可能即将变得难以维护。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="3012"><strong>30.1.2 度量的原则</strong><a class="headerlink" href="#3012" title="Permanent link">¶</a></h3>
+<p>在动手收集任何数据之前，我们必须遵循以下四个核心原则：</p>
+<ol>
+<li>目标先行（Establish Objectives）<ul>
+<li><strong>定义</strong>：在数据收集开始之前，必须明确建立测量的目标。</li>
+<li><strong>解释</strong>：不要为了测量而测量。如果没有目标，收集来的一堆数字只会变成无用的数据垃圾。</li>
+<li><strong>案例</strong>：在开始统计代码行数前，明确目标是“为了评估项目进度”，还是“为了寻找代码臃肿的模块”。</li>
+</ul>
+</li>
+<li>明确无歧义（Unambiguous Definition）<ul>
+<li><strong>定义</strong>：每个技术度量都应该以一种明确无歧义的方式进行定义。</li>
+<li><strong>解释</strong>：团队内所有人对度量标准的理解必须完全一致，不能有操作上的模糊地带。</li>
+<li><strong>案例</strong>：当我们说“测量代码行数（LOC）”时，必须明确规定：是否包含空行？是否包含注释行？是否包含只写了一个大括号 <code>{</code> 的行？</li>
+</ul>
+</li>
+<li>坚实的理论支撑（Valid Theory）<ul>
+<li><strong>定义</strong>：度量的推导应基于在该应用领域内有效的理论（例如，面向设计的度量应借鉴基本的设计概念和原则）。</li>
+<li><strong>解释</strong>：度量公式不能是拍脑袋决定的，它必须符合软件工程或计算机科学的基础常识。</li>
+<li><strong>案例</strong>：评估一段 C++ 代码的控制流复杂性，不能只看文件大小，而应基于图论（计算执行路径的独立分支数，如圈复杂度），这才是科学的。</li>
+</ul>
+</li>
+<li>量体裁衣（Tailored to Products/Processes）<ul>
+<li><strong>定义</strong>：度量应当进行定制，以最佳地适应特定的产品和研发过程。</li>
+<li><strong>解释</strong>：没有放之四海而皆准的万能度量标准。</li>
+<li><strong>案例</strong>：为一个底层的类型检查器（TypeChecker）设计的执行效率度量标准，绝对不适用于评估一个提供可视化界面的网络配置代理工具（后者更应关注 UI 响应时间或点击转化率）。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3013"><strong>30.1.3 优质度量的特征</strong><a class="headerlink" href="#3013" title="Permanent link">¶</a></h3>
+<p>我们设计出的任何度量标准，如果想要真正落地，应当努力符合以下六个特征：</p>
+<ol>
+<li>简单且可计算（Simple and computable）<ul>
+<li><strong>解释</strong>：工程师很容易学习如何推导它，且计算过程不会耗费过多的时间或精力。如果算一个指标需要跑三天的脚本，那它就失去了日常指导意义。</li>
+</ul>
+</li>
+<li>经验与直觉上的说服力（Empirically and intuitively persuasive）<ul>
+<li><strong>解释</strong>：度量的结果应该符合软件工程师的直观常识。如果老程序员一眼看出这堆代码写得很烂，但度量工具却给出了“满分”，那说明这个度量标准是失效的。</li>
+</ul>
+</li>
+<li>一致性与客观性（Consistent and objective）<ul>
+<li><strong>解释</strong>：无论由初级程序员还是资深架构师来测，度量都应始终产生无歧义的结果。它不能受到主观情绪的影响。</li>
+</ul>
+</li>
+<li>单位与量纲的一致性（Consistent in its use of units and dimensions）<ul>
+<li><strong>解释</strong>：数学计算中不应出现荒谬的单位组合。比如，不能把“代码行数”和“加载秒数”直接相加得到一个毫无物理意义的数字。</li>
+</ul>
+</li>
+<li>独立于编程语言（Programming language independent）<ul>
+<li><strong>解释</strong>：高质量的度量应基于分析模型、设计结构本身，而不局限于语言。（当然，部分代码级度量例外）。一个好的架构度量，无论是评估 C++ 项目还是 Python 项目，都应该是有效的。</li>
+</ul>
+</li>
+<li>有效的质量反馈机制（Effective mechanism for quality feedback）<ul>
+<li><strong>解释</strong>：度量不仅是用来“打分”的，更是用来“治病”的。它应该能为软件工程师提供明确的指引，引导他们做出更高质量的最终产品。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3014"><strong>30.1.4 度量的过程</strong><a class="headerlink" href="#3014" title="Permanent link">¶</a></h3>
+<p>测量的过程是一个由五个步骤组成的闭环：</p>
+<ol>
+<li>公式化（Formulation）<ul>
+<li>推导出适合目标软件表示形式的测量和度量标准。</li>
+<li><em>案例</em>：决定用“函数调用深度”来公式化表示递归下降解析器的复杂程度。</li>
+</ul>
+</li>
+<li>收集（Collection）<ul>
+<li>建立用于积累公式化度量所需数据的机制（尽可能自动化）。</li>
+<li><em>案例</em>：编写一个脚本，结合 CI/CD 流水线，每次提交时自动提取各个模块的函数调用关系。</li>
+</ul>
+</li>
+<li>分析（Analysis）<ul>
+<li>计算度量结果，并在必要时应用数学和统计学工具进行科学的论证与处理。</li>
+<li><em>案例</em>：将收集到的调用深度数据进行统计，发现有 5% 的函数调用深度超过了 20 层。</li>
+</ul>
+</li>
+<li>解释（Interpretation）<ul>
+<li>评估度量结果。单纯的数据没有意义，必须为每一项度量建立解释指南和建议，告诉团队数据反映了什么问题。</li>
+<li><em>案例</em>：结合代码发现，这 5% 过深的调用通常伴随着严重的性能瓶颈和栈溢出风险。</li>
+</ul>
+</li>
+<li>反馈（Feedback）<ul>
+<li>将从解释中得出的优化建议传达给软件工程团队。</li>
+<li><em>案例</em>：在团队周报中指出该问题，并建议将部分深层递归重构为迭代循环或进行尾递归优化。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3015"><strong>30.1.5 目标导向的度量</strong><a class="headerlink" href="#3015" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>GQM 范式（Goal/Question/Metric Paradigm）</strong></p>
+<p>这是一种业界经典的、自上而下的目标导向度量思维框架。</p>
+<ul>
+<li><strong>目标（Goal）</strong>：建立一个明确的测量目标，具体针对要评估的过程活动或产品特征。</li>
+<li><strong>问题（Question）</strong>：定义一系列必须回答的问题，才能实现该目标。</li>
+<li><strong>度量（Metric）</strong>：确定格式良好的度量标准，以帮助回答这些问题。</li>
+<li><strong>示例：</strong></li>
+</ul>
+<p>GQM 生活案例：制定个人健康管理计划</p>
+<ul>
+<li>（G） 建立目标（套用定义模板）<ul>
+<li><strong>分析（Analyze）</strong>：个人的日常饮食与运动习惯</li>
+<li><strong>目的在于（for the purpose of）</strong>：科学地管理体型，降低健康风险</li>
+<li><strong>关注点是（with respect to）</strong>：整体脂肪含量的变化</li>
+<li><strong>视角来自（from the viewpoint of）</strong>：一个想变健康的普通人</li>
+<li><strong>环境背景（in the context of）</strong>：日常三餐正常吃，缺乏规律运动的生活状态</li>
+</ul>
+</li>
+<li>（Q） 定义问题<ul>
+<li>我最近一直在控制饮食，偶尔也去健身房，我的身材到底有没有实质性的变好？</li>
+</ul>
+</li>
+<li>（M） 确定度量<ul>
+<li>体脂率（由身高、体重、身体电阻大小等测量值计算而得）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="302">30.2 度量在软件工程中的应用<a class="headerlink" href="#302" title="Permanent link">¶</a></h2>
+<h3 id="3021-requirement-model">30.2.1 需求模型（Requirement Model）度量<a class="headerlink" href="#3021-requirement-model" title="Permanent link">¶</a></h3>
+<ol>
+<li>在需求分析阶段，我们主要有两种度量方向：<ul>
+<li><strong>基于功能的度量（Function-based metrics）</strong><ul>
+<li>通过测量“功能点”的数目，度量系统交付给用户的<strong>功能规模</strong>。</li>
+</ul>
+</li>
+<li>规格说明度量（Specification metrics）<ul>
+<li>阅读需求文档，通过测量不同类型需求的数量，来作为文档质量的指示器。</li>
+<li><em>通俗解释</em>：数一数这份需求文档里，有多少是功能需求，有多少是性能需求，有多少是安全需求。如果全是功能需求，没有安全需求，这就暗示了文档质量存在缺陷。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>什么是功能点（Function Points, FP）？</strong><ul>
+<li><strong>定义</strong>：功能点度量由 Albrecht 首次提出，它可以被有效地用作测量系统交付给用户的<strong>功能规模</strong>的手段。</li>
+<li><strong>核心原理</strong>：功能点是使用基于经验的关系推导出来的。它依赖于对软件“信息域（Information Domain）”的直接测量，以及对软件复杂性的评估。</li>
+<li><strong>生活化案例</strong>：评估一套房子的规模，内行人不会去数“用了多少块砖”，因为砖有大有小，而且大头贴砖和实心砖不一样。内行人看的是“几室几厅几卫”、“有几个阳台”。<strong>“室、厅、卫”就是房子的“功能点”</strong>。无论房子是用木头盖还是水泥盖，功能点是稳定不变的。</li>
+</ul>
+</li>
+<li>
+<p>功能点的基本类型</p>
+<p>像财务清点资产一样，清点系统里的以下 5 种基本元素。</p>
+<ol>
+<li>外部输入（External Inputs, EIs）<ul>
+<li><strong>通俗解释</strong>：用户或外部系统<strong>推给</strong>我们系统的数据，通常会导致内部数据的更新。</li>
+<li><strong>实战案例</strong>：用户注册时填写的“注册表单”；或者电商系统里你点击的“加入购物车”操作。</li>
+</ul>
+</li>
+<li>外部输出（External Outputs, EOs）<ul>
+<li><strong>通俗解释</strong>：我们系统经过<strong>计算和处理后</strong>，推给用户或外部系统的数据。</li>
+<li><strong>实战案例</strong>：系统月底自动生成的“包含了总销售额和利润率的 PDF 财务报表”；或者支付成功后弹出的“电子小票”。</li>
+</ul>
+</li>
+<li>外部查询（External Inquiries, EQs）<ul>
+<li><strong>通俗解释</strong>：一种简单的数据读取。用户输入一个条件，系统原封不动地把数据查出来给你（不涉及复杂的数学计算或数据修改）。</li>
+<li><strong>实战案例</strong>：在学校教务系统里输入你的学号，查询你的“基本学籍信息”。</li>
+</ul>
+</li>
+<li>内部逻辑文件（Internal Logical Files, ILFs）<ul>
+<li><strong>通俗解释</strong>：我们系统<strong>自己维护</strong>的、存在系统内部的逻辑数据组。</li>
+<li><strong>实战案例</strong>：你的教务系统背后的 MySQL 数据库里的 <code>Student（学生表）</code> 或 <code>Course（课程表）</code>。</li>
+</ul>
+</li>
+<li>外部接口文件（External Interface Files, EIFs）<ul>
+<li><strong>通俗解释</strong>：<strong>别人系统维护</strong>的数据，我们系统只是拿来“读一下”作为参考，我们无权修改。</li>
+<li><strong>实战案例</strong>：你的外卖 App 在结算时，调用了“微信支付的汇率/状态接口”。这个微信侧的数据对你来说就是 EIF。</li>
+</ul>
+</li>
+<li><strong>功能点计算模型实战</strong></li>
+</ol>
+<p>认清了上面 5 个元素，我们就可以查表计算了。Albrecht 团队通过大量的历史项目统计，给每种元素都赋予了不同难度级别（简单、平均、复杂）的<strong>权重因子（Weighting factor）</strong>。</p>
+<p>计算时，将统计出的数量乘以对应的权重，最后将所有结果相加，即可得到<strong>总计数值（Count Total）</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>信息域值（Domain Value）</strong></th>
+<th><strong>计数（Count）</strong></th>
+<th><strong>简单（Simple）</strong></th>
+<th><strong>平均（Average）</strong></th>
+<th><strong>复杂（Complex）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>外部输入（EIs）</strong></td>
+<td>（数一数有几个）</td>
+<td>× 3</td>
+<td>× 4</td>
+<td>× 6</td>
+</tr>
+<tr>
+<td><strong>外部输出（EOs）</strong></td>
+<td>（数一数有几个）</td>
+<td>× 4</td>
+<td>× 5</td>
+<td>× 7</td>
+</tr>
+<tr>
+<td><strong>外部查询（EQs）</strong></td>
+<td>（数一数有几个）</td>
+<td>× 3</td>
+<td>× 4</td>
+<td>× 6</td>
+</tr>
+<tr>
+<td><strong>内部逻辑文件（ILFs）</strong></td>
+<td>（数一数有几个）</td>
+<td>× 7</td>
+<td>× 10</td>
+<td>× 15</td>
+</tr>
+<tr>
+<td><strong>外部接口文件（EIFs）</strong></td>
+<td>（数一数有几个）</td>
+<td>× 5</td>
+<td>× 7</td>
+<td>× 10</td>
+</tr>
+<tr>
+<td>5. <strong>课堂互动</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>情境：</strong>“同学们，假设你们现在接到了学校图书馆的一个私活，要求开发一个超级简单的『图书检索小程序』。需求如下：</p>
+<ol>
+<li>学生可以在界面上输入书名，点击搜索，看到图书的位置（不涉及复杂计算）。</li>
+<li>图书的库存数据直接存在我们小程序的后台数据库里。</li>
+<li>为了防止非本校人员使用，系统在登录时，需要后台去调用一下‘学校一卡通中心’的接口来验证身份。</li>
+</ol>
+<p><strong>提问：</strong>请大家帮我把这 3 个需求，分别归类到那 5 种信息域元素中去！”</p>
+<p><strong>答案：</strong></p>
+<ol>
+<li>“输入书名查位置” —— 这属于简单的读数据，归类为 <strong>外部查询（EQs）</strong>。</li>
+<li>“存在后台的图书库存数据” —— 这是我们自己维护的数据库，归类为 <strong>内部逻辑文件（ILFs）</strong>。</li>
+<li>“学校一卡通中心的接口数据” —— 这是别人系统维护的数据，我们只读不写，归类为 <strong>外部接口文件（EIFs）</strong>。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3022-architectural-design">30.2.2 架构设计（Architectural Design）度量<a class="headerlink" href="#3022-architectural-design" title="Permanent link">¶</a></h3>
+<ol>
+<li>扇入和扇出<ul>
+<li><strong>扇出（Fan-out）</strong>：一个模块直接调用（控制）的其他模块的数量。扇出过大，说明这个模块是个“控制狂”（上帝模块），管得太多，逻辑极易出错。</li>
+<li><strong>扇入（Fan-in）</strong>：一个模块<strong>被多少个其他模块调用</strong>。扇入大，说明这个模块是底层核心（比如某个通用的工具类），复用率高，但一旦修改它，牵一发而动全身。</li>
+</ul>
+</li>
+<li>
+<p>架构设计度量的三大公式</p>
+<p><strong>1. 结构复杂性（Structural Complexity）</strong></p>
+<ul>
+<li><strong>公式推导</strong>：结构复杂性被定义为扇出的函数：<code>Structural complexity = g（fan-out）</code>。</li>
+<li><strong>通俗解释</strong>：评估架构的纯物理连接结构。如果一个主控模块（Main）需要直接调用多达 20 个子系统，它的结构复杂性就极高，这通常意味着架构师没有做好中间层的抽象与隔离。</li>
+</ul>
+<p><strong>2. 数据复杂性（Data Complexity）</strong></p>
+<ul>
+<li><strong>公式推导</strong>：数据复杂性被定义为输入输出变量与扇出的函数：<code>Data complexity = f（input &amp; output variables, fan-out）</code>。</li>
+<li><strong>通俗解释</strong>：光看调用关系还不够，还要看“带了多少货”。如果模块 A 调用模块 B（扇出为 1，结构复杂性不高），但每次调用都要传递 15 个极其复杂的参数对象（输入/输出变量极多），那么该模块的数据复杂性依然会爆表。</li>
+</ul>
+<p><strong>3. 系统复杂性（System Complexity）</strong></p>
+<ul>
+<li><strong>公式推导</strong>：系统整体的复杂性被定义为结构复杂性与数据复杂性的综合函数：<code>System complexity = h（structural &amp; data complexity）</code>。</li>
+<li><strong>通俗解释</strong>：它是对控制流（调谁）和数据流（传什么）的综合考量。</li>
+<li>经典的架构度量模型</li>
+<li><strong>HK 度量（HK Metric）</strong><ul>
+<li><strong>核心思想</strong>：将架构复杂性作为扇入和扇出的函数来进行综合计算。</li>
+<li><strong>应用场景</strong>：通过平衡扇入和扇出的比值，寻找架构中的瓶颈模块。比如寻找那些“扇入极大（到处都在用），但扇出也极大（到处依赖别人）”的危险模块，这种模块往往是系统崩溃的导火索。</li>
+</ul>
+</li>
+<li><strong>形态度量（Morphology Metrics）</strong><ul>
+<li><strong>核心思想</strong>：它是模块数量以及模块之间接口数量的函数。</li>
+<li><strong>通俗解释</strong>：这就好比我们在画 UML 组件图时，数一数图上有多少个方块（模块），以及方块之间连了多少条线（接口）。线越密集，形态复杂性越高。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="3023-oo-design">30.2.3 面向对象设计（OO Design）度量<a class="headerlink" href="#3023-oo-design" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>为什么需要 OO 度量</p>
+<p>面向对象系统有一些过程式软件没有那么突出的特征，因此必须开发专门的 OO 度量：</p>
+<ul>
+<li><strong>局部化（Localization）</strong>：信息在程序中的集中方式。</li>
+<li><strong>封装（Encapsulation）</strong>：数据和处理被打包在一起。</li>
+<li><strong>信息隐藏（Information Hiding）</strong>：通过安全接口隐藏内部细节。</li>
+<li><strong>继承（Inheritance）</strong>：一个类的职责如何传递给另一个类。</li>
+<li><strong>抽象（Abstraction）</strong>：关注本质而屏蔽细节的机制。</li>
+<li>OO 可测特征</li>
+</ul>
+<p>将 OO 设计的质量拆成 9 个可以观察和度量的方面：</p>
+<ol>
+<li><strong>规模（Size）</strong><ul>
+<li>定义：可从 population、volume、length、functionality 四个角度理解对象系统的规模。</li>
+<li>通俗解释：类有多少、方法有多少、系统做了多少事。</li>
+<li>案例：一个简单的课程管理系统只有 12 个类；一个大型 ERP 子系统可能有 200 多个核心类。</li>
+</ul>
+</li>
+<li><strong>复杂性（Complexity）</strong><ul>
+<li>定义：OO 设计中的类彼此之间如何相互关联。</li>
+<li>通俗解释：类图像蜘蛛网一样缠在一起，复杂性就高。</li>
+<li>案例：一个 <code>SuperController</code> 同时依赖 <code>User</code>、<code>Order</code>、<code>Payment</code>、<code>Notification</code>、<code>Audit</code> 等十多个类，一改就牵一串。</li>
+</ul>
+</li>
+<li><strong>耦合（Coupling）</strong><ul>
+<li>定义：OO 设计元素之间的物理连接程度。</li>
+<li>通俗解释：一个类离开别的类就活不了，说明耦合大。</li>
+<li>案例：很多 AI Agent 项目里，一个 <code>AgentOrchestrator</code> 直接依赖模型类、工具类、会话类、向量库类、权限类、日志类，这类代码往往维护痛苦。</li>
+</ul>
+</li>
+<li><strong>充分性（Sufficiency）</strong><ul>
+<li>定义：某个抽象是否具备当前应用所要求的特征。</li>
+<li>通俗解释：这个类是不是“该有的功能都有了”，而不是只有一个空壳。</li>
+<li>案例：如果 <code>PaymentMethod</code> 类没有提供统一的 <code>pay（）</code> 行为，只是堆几个字段，那抽象就是不充分的。</li>
+</ul>
+</li>
+<li><strong>完整性（Completeness）</strong><ul>
+<li>定义：对抽象或设计组件可复用程度的一种间接暗示。</li>
+<li>通俗解释：这个设计除了能完成眼前任务，还能不能比较完整地服务于类似场景。</li>
+<li>案例：一个“消息发送接口”如果同时考虑短信、邮件、站内信，完整性通常比只支持短信的版本更强。</li>
+</ul>
+</li>
+<li><strong>内聚（Cohesion）</strong><ul>
+<li>定义：所有操作是否共同服务于一个清晰且单一的目标。</li>
+<li>通俗解释：一个类内部的方法是不是都在干同一类事。</li>
+<li>案例：<code>StudentService</code> 里既写选课逻辑，又写图表渲染，又写 Excel 导出，内聚性显然很差。</li>
+</ul>
+</li>
+<li><strong>原始性 / 原子性（Primitiveness）</strong><ul>
+<li>定义：可应用到操作和类，表示一个操作是否足够“原子化”。</li>
+<li>通俗解释：一个方法是不是一步一事，而不是把十几件事硬塞进来。</li>
+<li>案例：一个 <code>processAll（）</code> 方法里同时完成鉴权、查询、转换、写库、发消息、打日志，就违反了原子性。</li>
+</ul>
+</li>
+<li><strong>相似性（Similarity）</strong><ul>
+<li>定义：两个或多个类在结构、功能、行为或目的上的相似程度。</li>
+<li>通俗解释：这两个类是不是其实长得太像，已经到了值得抽象出父类或公共组件的程度。</li>
+<li>案例：<code>StudentReportGenerator</code> 和 <code>TeacherReportGenerator</code> 如果 80% 逻辑相同，就应考虑重构。</li>
+</ul>
+</li>
+<li><strong>易变性（Volatility）</strong><ul>
+<li>定义：发生变化的可能性。</li>
+<li>通俗解释：这个类将来会不会经常改。</li>
+<li>案例：和政策、计费、推荐策略相关的类往往易变性很高；底层数学工具类则相对稳定。</li>
+</ul>
+</li>
+<li><strong>概念比较与辨析</strong></li>
+<li><strong>充分性 vs 完整性</strong><ul>
+<li>充分性更偏向“当前够不够用”。</li>
+<li>完整性更偏向“设计是否具备较强复用和扩展价值”。</li>
+</ul>
+</li>
+<li><strong>复杂性 vs 耦合</strong><ul>
+<li>复杂性是更宽泛的概念，描述系统关系是否难以理解。</li>
+<li>耦合是复杂性的一个重要来源，强调依赖关系强不强。</li>
+</ul>
+</li>
+<li><strong>内聚低 vs 类大</strong><ul>
+<li>类大不一定有罪。如果一个类大，但所有方法都服务于同一职责，仍可能是高内聚。</li>
+<li>真正危险的是“又大又杂”，即方法多且主题分散。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="3024-class-oriented-metrics">30.2.4 类级度量（Class-Oriented Metrics）<a class="headerlink" href="#3024-class-oriented-metrics" title="Permanent link">¶</a></h3>
+<ol>
+<li>CK 经典度量集（Chidamber and Kemerer）<ol>
+<li><strong>每类加权方法数（WMC, Weighted Methods per Class）</strong><ul>
+<li>通俗解释：一个类到底“有多忙”。</li>
+<li>如果一个类有非常多的方法，或者方法本身很复杂，WMC 就会升高。</li>
+<li><strong>工程含义</strong>：WMC 高往往意味着该类承担了太多职责，理解、测试和维护都更困难。</li>
+</ul>
+</li>
+<li><strong>继承树深度（DIT, Depth of Inheritance Tree）</strong><ul>
+<li>通俗解释：从这个类往上爬父类，要爬几层。</li>
+<li><strong>工程含义</strong>：DIT 深意味着复用潜力大，但理解成本、调试成本和副作用传播也更强。</li>
+<li><strong>案例</strong>：很多大型 GUI 框架或 ORM 框架中，某些业务类继承链深达 5 层以上，新手一改就翻车。</li>
+</ul>
+</li>
+<li><strong>子类个数（NOC, Number of Children）</strong><ul>
+<li>通俗解释：这个类下面带了多少个“孩子”。</li>
+<li><strong>工程含义</strong>：NOC 大说明这个类往往是一个重要抽象或基类，但它一旦变化，影响范围极广。</li>
+</ul>
+</li>
+<li><strong>类间耦合（CBO, Coupling Between Object Classes）</strong><ul>
+<li>通俗解释：这个类和多少别的类牵扯不清。</li>
+<li><strong>工程含义</strong>：CBO 高说明依赖太多，改动时容易“连锁爆炸”。</li>
+</ul>
+</li>
+<li><strong>类响应集合（RFC, Response For a Class）</strong><ul>
+<li>通俗解释：给这个类发一个消息，它最终可能触发多少个方法响应。</li>
+<li><strong>工程含义</strong>：RFC 高意味着行为路径长，测试覆盖与行为预测都更困难。</li>
+</ul>
+</li>
+<li><strong>方法缺乏内聚（LCOM, Lack of Cohesion in Methods）</strong><ul>
+<li>通俗解释：类中的方法彼此像不像“一家人”。</li>
+<li><strong>工程含义</strong>：LCOM 高说明这个类内部的方法服务于不同的数据和职责，是典型的“该拆类了”的信号。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Lorenz and Kidd 提出的类级度量<ul>
+<li><strong>类大小（Class Size）</strong><ul>
+<li>看类的数据成员和操作总规模。</li>
+</ul>
+</li>
+<li><strong>子类重写操作数（Number of operations overridden by a subclass）</strong><ul>
+<li>看子类覆盖了父类多少行为。</li>
+</ul>
+</li>
+<li><strong>子类新增操作数（Number of operations added by a subclass）</strong><ul>
+<li>看子类额外扩展了多少新能力。</li>
+</ul>
+</li>
+<li><strong>专门化指数（Specialization Index）</strong><ul>
+<li>用于评估子类究竟是在“合理专门化”，还是“过度背离”父类原本设计。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>MOOD 度量套件<ul>
+<li><strong>方法继承因子（Method Inheritance Factor）</strong>：系统到底多大程度上在复用父类行为？</li>
+<li><strong>耦合因子（Coupling Factor）</strong>：对象之间是不是缠得太紧？</li>
+<li><strong>多态因子（Polymorphism Factor）</strong>：系统是否真正利用了 OO 的动态分发优势？</li>
+</ul>
+</li>
+</ol>
+<h3 id="3025-operation-oriented-metrics">30.2.5 操作级度量（Operation-Oriented Metrics）<a class="headerlink" href="#3025-operation-oriented-metrics" title="Permanent link">¶</a></h3>
+<p>可以从三类典型度量来分析：</p>
+<ol>
+<li><strong>平均操作大小（Average operation size）</strong><ul>
+<li>辨析：一个方法很短，就一定好吗？</li>
+<li>回答：不一定。如果它短是因为逻辑被切得支离破碎，到处跳转，整体理解成本仍然很高。</li>
+</ul>
+</li>
+<li><strong>操作复杂性（Operation complexity）</strong></li>
+<li><strong>每个操作的平均参数数（Average number of parameters per operation）</strong><ul>
+<li>辨析：一个方法参数多，一定不好吗？</li>
+<li>回答：不一定。如果是数据传输对象（DTO）被合理封装，参数表面上可能变少，但真正复杂度未必下降。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3026-component-level-design-metrics">30.2.6 组件级设计度量（Component-Level Design Metrics）<a class="headerlink" href="#3026-component-level-design-metrics" title="Permanent link">¶</a></h3>
+<p>可以从三类典型度量来分析：</p>
+<ol>
+<li><strong>内聚度量（Cohesion metrics）</strong><ul>
+<li>它是数据对象以及这些对象定义位置的函数。</li>
+<li>通俗解释：一个组件里的东西是不是围绕着同一主题在工作。</li>
+</ul>
+</li>
+<li><strong>耦合度量（Coupling metrics）</strong><ul>
+<li>它是输入输出参数、全局变量以及所调用模块数量的函数。</li>
+<li>通俗解释：这个组件要想工作，是否必须拉上一大票“外援”。</li>
+</ul>
+</li>
+<li><strong>复杂度量（Complexity metrics）</strong><ul>
+<li>课件提到已经有成百上千种复杂度量被提出，例如圈复杂度（Cyclomatic Complexity）。</li>
+<li>通俗解释：组件内部的控制逻辑有多少独立路径，要测多少种情况才能把它测透。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3027-interface-design-metrics">30.2.7 界面设计度量（Interface Design Metrics）<a class="headerlink" href="#3027-interface-design-metrics" title="Permanent link">¶</a></h3>
+<p>典型度量：<strong>布局适切性（Layout Appropriateness）</strong></p>
+<ul>
+<li><strong>原始定义</strong>：布局适切性是布局实体、其地理位置以及在这些实体之间进行转换的“成本”的函数。</li>
+<li><strong>通俗解释</strong>：界面元素放得对不对，用户完成任务时要不要来回找、来回跳、来回点。</li>
+<li>
+<p><strong>生活案例</strong>：</p>
+<p>想象你在一个校园教务系统里选课：</p>
+<ul>
+<li>如果“课程搜索框”在左上角，“筛选条件”藏在二级菜单，“确认选课按钮”在最底部滚动区域，用户就得不停移动视线、滚页面、切菜单。</li>
+<li>这种设计的<strong>布局适切性</strong>就比较差。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3028-web">30.2.8 Web 与移动应用设计度量<a class="headerlink" href="#3028-web" title="Permanent link">¶</a></h3>
+<p>可以从六类典型度量来分析：</p>
+<ol>
+<li><strong>用户界面是否促进可用性（Usability）？</strong><ul>
+<li>通俗解释：用户会不会一上手就明白怎么用。</li>
+<li>案例：医院挂号 App 如果入口清晰、预约流程短、错误提示明确，就说明可用性较强。</li>
+</ul>
+</li>
+<li><strong>App 的美学风格是否适合应用领域，并且让用户感觉愉悦？</strong><ul>
+<li>通俗解释：好看不是越花哨越好，而是“合适”。</li>
+<li>案例：银行 App 适合稳重、可信；二次元社区 App 则可以更活泼、更具视觉张力。</li>
+</ul>
+</li>
+<li><strong>内容设计是否以最少努力传递最多信息？</strong><ul>
+<li>通俗解释：信息密度高，但阅读负担不能大。</li>
+<li>案例：新闻客户端首页如果标题、摘要、分类、推荐理由排布清晰，用户能快速获取信息；如果信息堆叠混乱，就会造成认知疲劳。</li>
+</ul>
+</li>
+<li><strong>导航是否高效、直接？</strong><ul>
+<li>通俗解释：用户能不能迅速到达目的地。</li>
+<li>案例：短视频平台的“拍摄”“搜索”“消息”“个人主页”入口通常一眼可见，这就是高效导航。</li>
+</ul>
+</li>
+<li><strong>App 架构是否适应用户目标、内容结构与导航流？</strong><ul>
+<li>通俗解释：后台与前台结构是不是在为用户的真实任务服务。</li>
+<li>案例：一个在线学习平台，如果“看课”“做题”“查看进度”“复习错题”四条主线结构清晰，就说明架构设计是贴合用户目标的。</li>
+</ul>
+</li>
+<li><strong>组件设计是否降低了过程复杂性，并提升正确性、可靠性与性能？</strong><ul>
+<li>通俗解释：页面背后的组件系统是不是干净、稳定、好复用。</li>
+<li>案例：如果一个移动 App 每个页面都自己造一套按钮、表单、弹窗逻辑，那后期稳定性和维护性都会很差。</li>
+</ul>
+</li>
+</ol>
+<h3 id="3029">30.2.9 代码度量<a class="headerlink" href="#3029" title="Permanent link">¶</a></h3>
+<p>Halstead 软件科学是一组相当经典但也颇具争议的代码度量方法。</p>
+<ul>
+<li><strong>核心思想</strong>：基于程序中<strong>运算符（operators）</strong> 和 <strong>操作数（operands）</strong> 的种类数与出现次数，推导出关于程序规模、体积、难度、工作量等一系列指标。</li>
+<li><strong>一句话理解</strong>：它把程序看成一种“符号组合系统”，通过符号统计来评估代码复杂程度。</li>
+</ul>
+<h3 id="30210-metrics-for-testing">30.2.10 测试度量（Metrics for Testing）<a class="headerlink" href="#30210-metrics-for-testing" title="Permanent link">¶</a></h3>
+<ol>
+<li>测试工作量也可以借助 Halstead 度量来估算。除此之外，Binder 还提出了一系列直接影响 OO 系统“可测性（Testability）”的设计度量。这些度量包括：<ul>
+<li><strong>LCOM</strong>：方法缺乏内聚</li>
+<li><strong>PAP（Percent public and protected）</strong>：公有和受保护成员的比例</li>
+<li><strong>PAD（Public access to data members）</strong>：对数据成员的公共访问程度</li>
+<li><strong>NOR（Number of root classes）</strong>：根类的数量</li>
+<li><strong>FIN（Fan-in）</strong>：扇入</li>
+<li><strong>NOC</strong>：子类个数</li>
+<li><strong>DIT</strong>：继承树深度</li>
+</ul>
+</li>
+<li>为什么这些指标会影响测试？因为“难测”的系统通常具有这些共同特征：<ul>
+<li>职责不清，类内部太散；</li>
+<li>暴露了太多内部细节；</li>
+<li>继承链太深，行为来源不透明；</li>
+<li>依赖太多，构造测试环境成本极高。</li>
+</ul>
+</li>
+<li>
+<p>案例：为什么 PAD 高不利于测试？</p>
+<p>如果一个类的很多数据成员都可以被外部随意读写，那么系统状态就会被很多地方悄悄改变。一旦测试失败，你很难追踪“是谁把它改坏了”。这就像实验室里任何人都能随便动你的实验器材，最后坏了却查不出是谁碰的。</p>
+</li>
+</ol>
+<h3 id="30211">30.2.11 软件维护度量<a class="headerlink" href="#30211" title="Permanent link">¶</a></h3>
+<ol>
+<li><strong>软件成熟度指数（Software Maturity Index, SMI）</strong><ul>
+<li>是一个软件维护阶段的度量</li>
+<li><strong>用于指示一个软件产品的稳定性，尤其是比较不同发布版本之间变化的剧烈程度。</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>SMI 计算公式</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>SMI = [MT -（Fa + Fc + Fd）] / MT
+</span></code></pre></div>
+<ul>
+<li>变量含义：<ul>
+<li><code>MT</code> = 当前发布版本中的模块总数</li>
+<li><code>Fc</code> = 当前发布版本中<strong>被修改</strong>的模块数</li>
+<li><code>Fa</code> = 当前发布版本中<strong>新增</strong>的模块数</li>
+<li><code>Fd</code> = 与前一版本相比，在当前版本中<strong>被删除</strong>的模块数</li>
+</ul>
+</li>
+<li>核心思想：<ul>
+<li>如果一个新版本里，大量模块都在改、新增、删除，说明系统还处于剧烈变化中，产品还不稳定。</li>
+<li>如果一个新版本里，大部分模块都没动，说明系统趋于成熟和稳定。</li>
+<li>因此：<strong>SMI 越接近 1.0，产品越稳定。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年7月1日 01:22:12 CST">2026年7月1日 01:22:12</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="创建日期">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"></path></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="2026年7月1日 01:22:12 CST">2026年7月1日 01:22:12</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚">
+        
+          
+          <a href="../../chap29/chap29/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Chapter 29: Configuration Management">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 29: Configuration Management
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../chap31/chap31/" class="md-footer__link md-footer__link--next" aria-label="下一页: Chapter 31: Project Management Concepts">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Chapter 31: Project Management Concepts
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2023 - 2025 WangHX. <a href="https://beian.miit.gov.cn">冀ICP备2024085995号</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="/files/wechat.png" target="_blank" rel="noopener" title="微信公众号" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://3047901150.qzone.qq.com" target="_blank" rel="noopener" title="QQ空间" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M434.1 420.4c-11.5 1.4-44.9-52.7-44.9-52.7 0 31.3-16.1 72.2-51 101.8 16.8 5.2 54.8 19.2 45.8 34.4-7.3 12.3-125.5 7.9-159.6 4-34.1 3.8-152.3 8.3-159.6-4-9-15.2 28.9-29.2 45.8-34.4-34.9-29.5-51.1-70.4-51.1-101.8 0 0-33.3 54.1-44.9 52.7-5.4-.6-12.4-29.6 9.3-99.7 10.3-33 22-60.5 40.1-105.8C60.9 98 109.2-.1 224.3-.1 338-.1 387.5 96 384.6 214.9c18.1 45.2 29.9 72.9 40.1 105.8 21.8 70.1 14.7 99.1 9.3 99.7z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/WangHX2024/" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://t.me/wanghx2025" target="_blank" rel="noopener" title="Telegram" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 8a248 248 0 1 0 0 496 248 248 0 1 0 0-496m115 168.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7.2-.7.3-3.1-1.2-4.4s-3.6-.8-5.1-.5c-2.2.5-37.1 23.5-104.6 69.1-9.9 6.8-18.9 10.1-26.9 9.9-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3.6-4.5 6.7-9 18.4-13.7 72.3-31.5 120.5-52.3 144.6-62.3 68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6.5 9.6 2.9 2 1.7 3.2 4.1 3.5 6.7.5 3.2.6 6.5.4 9.8z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://twitter.com/wanghx01" target="_blank" rel="noopener" title="X" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:&lt;wanghaoxiong@zju.edu.cn&gt;" target="_blank" rel="noopener" title="电子邮件" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.footer", "search.highlight", "search.share", "search.suggest", "content.action.view", "content.action.edit", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../css_js/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
