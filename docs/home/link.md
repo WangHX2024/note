@@ -17,13 +17,4 @@ comments: true
         </a>
     </div>
 
-    <div class="flink-list-item">
-        <div class="flink-item-icon">
-          <img src="/files/example.jpg"/>
-        </div>
-        <a href="https://classnote.haoxiong.wang" title="" target="_blank">
-            <div class="flink-item-name">课程笔记</div>
-            <div class="flink-item-desc">实时更新的 Notion 站点，自 24-25 春夏学期开始更新。</div>
-        </a>
-    </div>
 </div>
