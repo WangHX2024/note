@@ -38,6 +38,11 @@ title: 主页
 
     - [x] [离散数学](/note/dm)
 
+    - [x] [软件工程](/note/se)
+
+    - [x] [编译原理](/note/cp)
+
+
 
 -   :fontawesome-solid-user-tag:{ .lg .middle } __关于我__
 
@@ -65,7 +70,7 @@ title: 主页
       <p style="text-align: center; ">
               <span>本站已经运行</span>
               <span id='box1'></span>
-              <span>最后更新：2025-09-02</span>
+              <span>最后更新：2026-07-01</span>
       </p>
       <div id="box1"></div>
       <script>
