@@ -5,7 +5,7 @@ hide:
 title: 主页
 ---
 
-<center><font  color= #518FC1 size=6>王浩雄的个人主页</font>
+<center><font  color= #518FC1 size=6>王浩雄的个人笔记</font>
 
 <p><font color="#B9B9B9">记住我的名字，就不会忘记这个网站的地址 <b>https://note.haoxiong.wang</b></font></p>
 </center>
@@ -16,7 +16,7 @@ title: 主页
 
     ---
 
-    24-25春夏学期课程笔记已同步到本站。25-26秋冬课程笔记正在实时更新中~ 请移步 [Notion](https://classnote.haoxiong.wang) 查看详情~
+    25-26春夏学期课程笔记《软件工程》《编译原理》已同步到本站~
 
 
 </div>
@@ -49,13 +49,12 @@ title: 主页
     ---
 
 
-    - 王浩雄同学来自**河北秦皇岛市**，现为浙江大学竺可桢学院混合班2023级本科生，主修专业为**计算机科学与技术**。
+    - 王浩雄同学是浙江大学竺可桢学院混合班2023级本科生，主修专业为**计算机科学与技术**。
 
-        [:octicons-arrow-right-24: 我的个人名片](https://haoxiong.wang)
+        [:octicons-arrow-right-24: 我的个人主页](https://haoxiong.wang)
 
     - 邮箱：[wanghaoxiong@zju.edu.cn](mailto:<wanghaoxiong@zju.edu.cn>)
 
-    - 地址：浙江省杭州市西湖区浙大路38号 310000
 
 
 
@@ -70,7 +69,7 @@ title: 主页
       <p style="text-align: center; ">
               <span>本站已经运行</span>
               <span id='box1'></span>
-              <span>最后更新：2026-07-01</span>
+              <span>最后更新：2026-09-03</span>
       </p>
       <div id="box1"></div>
       <script>
