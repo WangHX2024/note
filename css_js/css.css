@@ -1,0 +1,246 @@
+/* Initially created by @TonyCrane, modified by @WangHX*/
+
+/* 定义根元素的CSS变量 */
+:root {
+    /* 设置文本字体为 'JetBrains Mono' 和 'LXGW WenKai Screen' */
+    --md-text-font: "JetBrains Mono", "LXGW WenKai Screen"; 
+    /* 设置代码字体为 'JetBrains Mono' */
+    --md-code-font: "JetBrains Mono"; 
+    /* 设置统一圆角的大小为12px */
+    --base-border-radius: 12px; 
+}
+
+/* 设置不同颜色方案下的变量值 */
+[data-md-color-scheme="default"] {
+    /* 设置主文字颜色 */
+    --md-primary-fg-color: rgb(94, 159, 191);
+    --md-primary-fg-color--dark: rgb(94, 159, 191);
+    /* 设置链接颜色 */
+    --md-typeset-a-color: rgb(94, 159, 191);
+    /* 设置强调文字颜色 */
+    --md-accent-fg-color: rgb(139, 194, 222);
+    /* 设置背景颜色为浅灰色 */
+    --md-primary-bg-color: #fafafa;
+    /* 设置footer文字颜色为黑色 */
+    --md-footer-fg-color: #000000;
+    /* 设置footer背景颜色为浅灰色 */
+    --md-footer-bg-color: #efefef;
+    --md-footer-bg-color--dark: #efefef;
+    --md-footer-fg-color--light: #000000;
+    --md-footer-fg-color--lighter: #000000;
+}
+[data-md-color-scheme="slate"] {
+    /* 设置主文字颜色 */
+    --md-primary-fg-color: rgb(94, 159, 191);
+    --md-primary-fg-color--dark: rgb(94, 159, 191);
+    /* 设置链接颜色 */
+    --md-typeset-a-color: rgb(94, 159, 191);
+    /* 设置强调文字颜色 */
+    --md-accent-fg-color: rgb(139, 194, 222);
+    /* 设置背景颜色为深灰色 */
+    --md-primary-bg-color: #1e1e1e;
+    /* 设置footer文字颜色为白色 */
+    --md-footer-fg-color: #ffffff;
+    /* 设置footer背景颜色为深灰色 */
+    --md-footer-bg-color: #1e1e1e;
+    --md-footer-bg-color--dark: #1e1e1e;
+    --md-footer-fg-color--light: #ffffff;
+    --md-footer-fg-color--lighter: #ffffff;
+}
+
+/* 设置表格的边角的圆角 */
+.md-typeset table:not([class]) {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    transition: box-shadow 0.3s ease; /* 鼠标悬停过渡效果 */
+}
+
+/* 设置卡片列表项的圆角 */
+.md-typeset .grid.cards > ul > li {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    transition: box-shadow 0.3s ease; /* 鼠标悬停过渡效果 */
+}
+
+/* 鼠标悬停时增强卡片的阴影效果 */
+.md-typeset .grid.cards > ul > li:hover {
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.1); /* 增加阴影 */
+}
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li:hover {
+    box-shadow: 0 0 1em rgba(255, 255, 255, 0.1); /* 增加阴影 */
+}
+
+/* 设置搜索表单的圆角和内边距 */
+.md-search__form {
+    border-radius: var(--base-border-radius); /* 圆角 */
+    padding: 0.5rem; /* 内边距 */
+}
+
+/* 当搜索框被选中时，设置顶部圆角 */
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+    border-top-right-radius: var(--base-border-radius); /* 右上圆角 */
+    border-top-left-radius: var(--base-border-radius); /* 左上圆角 */
+}
+
+/* 设置搜索输出框的圆角 */
+[dir="ltr"] .md-search__output {
+    border-bottom-right-radius: var(--base-border-radius); /* 右下圆角 */
+    border-bottom-left-radius: var(--base-border-radius); /* 左下圆角 */
+}
+
+/* 设置图片的圆角和阴影效果 */
+.image{
+    width: 30% ;
+    border-radius: var(--base-border-radius); /* 圆角 */
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.3); /* 增加阴影 */
+}
+
+/* 友链 */
+.flink-list {
+    overflow: auto;
+    padding: 10px 10px 0;
+    text-align: center;
+}
+.flink-list a {
+    color: #4a4a4a;
+}
+[data-md-color-scheme="slate"] .flink-list a {
+    color: rgba(255,255,255,0.7);
+}
+.flink-list-item {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 15px 7px;
+    width: calc(100% - 15px);
+    height: 90px;
+    border-radius: var(--base-border-radius);
+    line-height: 17px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    transition: 0.25s;
+}
+.flink-item-icon {
+    float: left;
+    overflow: hidden;
+    margin: 15px 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+}
+.flink-item-name {
+    padding: 19px 10px 0 0;
+    height: 40px;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.flink-item-desc {
+    padding: 13px 10px 16px 0;
+    height: 50px;
+    font-size: 0.93em;
+}
+.flink-list-item:hover {
+    background-color: rgba(68,138,255,.1);
+}
+.flink-list-item {
+    width: calc(100% - 15px) !important;
+}
+
+/* 文件下载卡片 */
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #FEFEFE;
+    background-clip: border-box;
+    border: 0.5px solid #606060;
+    border-radius: .25rem;
+    margin-bottom: 1em;
+}
+
+[data-md-color-scheme="slate"] .card {
+    background-color: #181818;
+    border: 0.5px solid #606060;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+}
+
+.card-header {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.card-body ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.md-typeset :is(.card-body details) {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+}
+
+.file-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.2em 1em;
+    transition: background-color .3s cubic-bezier(.4,0,.2,1);
+}
+
+.file-block:hover {
+    background-color: #eeeeee;
+}
+[data-md-color-scheme="slate"] .file-block:hover {
+    background-color: #606060;
+}
+
+.file-title {
+    padding-left: 0rem;
+    margin-bottom: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.file-meta {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+}
+
+.file-body {
+    padding-left: 1em;
+    margin-right: auto;
+}
+
+.down-button {
+    border: 0.05rem solid !important;
+    border-radius: 0.1rem;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    padding: 0.25em 0.5em;
+    transition: color .3s,background-color .3s,border-color .3s !important;
+}
+
+.down-button:is(:focus,:hover) {
+    background-color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+    color: var(--md-accent-bg-color) !important;
+}
